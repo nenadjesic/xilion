@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xilion.Web", "Xilion\Xilion.Web.csproj", "{25E67AA8-0B65-41BA-A988-B64B73FA37A5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E0341D28-D954-4F03-9E05-199A04BEE9E4} = {E0341D28-D954-4F03-9E05-199A04BEE9E4}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xilion.Concrete", "Xilion.Concrete\Xilion.Concrete.csproj", "{3E592319-935F-45AA-80A5-73A72DB93C03}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F149F4B8-8394-4782-8813-22E2DDF697FC} = {F149F4B8-8394-4782-8813-22E2DDF697FC}
+		{9AC208F9-C671-45F8-B180-761C5D2BC5CF} = {9AC208F9-C671-45F8-B180-761C5D2BC5CF}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xilion.Interface", "Xilion.Interface\Xilion.Interface.csproj", "{9AC208F9-C671-45F8-B180-761C5D2BC5CF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F149F4B8-8394-4782-8813-22E2DDF697FC} = {F149F4B8-8394-4782-8813-22E2DDF697FC}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xilion.ViewModels", "Xilion.ViewModels\Xilion.ViewModels.csproj", "{F149F4B8-8394-4782-8813-22E2DDF697FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xilion.Framework", "Xilion.Framework\Xilion.Framework.csproj", "{E0341D28-D954-4F03-9E05-199A04BEE9E4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xilion.Models", "Xilion.Models\Xilion.Models.csproj", "{A25A374D-2FE4-429C-86C7-B7F3BB93C9A5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9AC208F9-C671-45F8-B180-761C5D2BC5CF} = {9AC208F9-C671-45F8-B180-761C5D2BC5CF}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25E67AA8-0B65-41BA-A988-B64B73FA37A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25E67AA8-0B65-41BA-A988-B64B73FA37A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25E67AA8-0B65-41BA-A988-B64B73FA37A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E592319-935F-45AA-80A5-73A72DB93C03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E592319-935F-45AA-80A5-73A72DB93C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E592319-935F-45AA-80A5-73A72DB93C03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC208F9-C671-45F8-B180-761C5D2BC5CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC208F9-C671-45F8-B180-761C5D2BC5CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC208F9-C671-45F8-B180-761C5D2BC5CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F149F4B8-8394-4782-8813-22E2DDF697FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F149F4B8-8394-4782-8813-22E2DDF697FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F149F4B8-8394-4782-8813-22E2DDF697FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0341D28-D954-4F03-9E05-199A04BEE9E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0341D28-D954-4F03-9E05-199A04BEE9E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0341D28-D954-4F03-9E05-199A04BEE9E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0341D28-D954-4F03-9E05-199A04BEE9E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A25A374D-2FE4-429C-86C7-B7F3BB93C9A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A25A374D-2FE4-429C-86C7-B7F3BB93C9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A25A374D-2FE4-429C-86C7-B7F3BB93C9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A25A374D-2FE4-429C-86C7-B7F3BB93C9A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0971C25E-66C3-447F-9182-21A0127C12DD}
+	EndGlobalSection
+EndGlobal

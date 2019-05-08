@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\netcoreapp2.2\Xilion.ViewModels.AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\netcoreapp2.2\Xilion.ViewModels.deps.json" />
+    <Content Include="obj\Debug\netcoreapp2.2\Xilion.ViewModels.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\project.assets.json" />
+    <Content Include="obj\Xilion.ViewModels.csproj.nuget.dgspec.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\netcoreapp2.2\Xilion.ViewModels.dll" />
+    <None Include="bin\Debug\netcoreapp2.2\Xilion.ViewModels.pdb" />
+    <None Include="obj\Debug\netcoreapp2.2\Xilion.ViewModels.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\netcoreapp2.2\Xilion.ViewModels.assets.cache" />
+    <None Include="obj\Debug\netcoreapp2.2\Xilion.ViewModels.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\netcoreapp2.2\Xilion.ViewModels.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\netcoreapp2.2\Xilion.ViewModels.dll" />
+    <None Include="obj\Debug\netcoreapp2.2\Xilion.ViewModels.pdb" />
+    <None Include="obj\Xilion.ViewModels.csproj.nuget.cache" />
+    <None Include="obj\Xilion.ViewModels.csproj.nuget.g.props" />
+    <None Include="obj\Xilion.ViewModels.csproj.nuget.g.targets" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HibernatingRhinos.Profiler.Appender" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>

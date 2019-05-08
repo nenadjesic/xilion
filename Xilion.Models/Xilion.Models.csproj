@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Web\**" />
+    <EmbeddedResource Remove="Web\**" />
+    <None Remove="Web\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\netcoreapp2.2\Xilion.Models.AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\netcoreapp2.2\Xilion.Models.deps.json" />
+    <Content Include="bin\Debug\netcoreapp2.2\Xilion.ModelsCore.deps.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.1.0" />
+    <PackageReference Include="Core.Google.Gdata.YouTube" Version="1.0.0" />
+    <PackageReference Include="FluentNHibernate" Version="2.1.2" />
+    <PackageReference Include="Google.Gdata.Client.Core" Version="1.0.2" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="NHibernate" Version="5.2.5" />
+    <PackageReference Include="NHibernate.Envers" Version="5.2.1" />
+    <PackageReference Include="NHibernate.Search" Version="2.0.2.4000" />
+    <PackageReference Include="StructureMap" Version="4.7.1" />
+    <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
+    <PackageReference Include="WebMatrix.WebData" Version="2.0.30506" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Xilion.Framework\Xilion.Framework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Filters\Data\Mappings\" />
+    <Folder Include="Service References\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\netcoreapp2.2\Xilion.FrameCore.dll" />
+    <None Include="bin\Debug\netcoreapp2.2\Xilion.FrameCore.pdb" />
+    <None Include="bin\Debug\netcoreapp2.2\Xilion.Framework.dll" />
+    <None Include="bin\Debug\netcoreapp2.2\Xilion.Framework.pdb" />
+    <None Include="bin\Debug\netcoreapp2.2\Xilion.Models.dll" />
+    <None Include="bin\Debug\netcoreapp2.2\Xilion.Models.pdb" />
+    <None Include="bin\Debug\netcoreapp2.2\Xilion.ModelsCore.dll" />
+    <None Include="bin\Debug\netcoreapp2.2\Xilion.ModelsCore.pdb" />
+    <None Include="obj\Debug\netcoreapp2.2\Xilion.Models.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\netcoreapp2.2\Xilion.Models.assets.cache" />
+    <None Include="obj\Debug\netcoreapp2.2\Xilion.Models.csproj.CoreCompileInputs.cache" />
+  </ItemGroup>
+
+</Project>

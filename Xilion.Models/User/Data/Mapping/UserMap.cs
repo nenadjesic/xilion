@@ -1,0 +1,28 @@
+﻿using Lucene.Net.Util;
+using Xilion.Models.Core.Data.Mappings;
+using Xilion.Framework.Data.Mappings.Conventions;
+using Xilion.Models;
+
+namespace Xilion.Models.User.Data.Mapping
+{
+    public class UserMap : CmsEntityMap<Users>
+    {
+        public UserMap()
+        {
+            //NaturalId().Property(x=>x.UserID).ReadOnly();
+            //Map(x => x.UserId).Nullable();
+            Map(x => x.UserId).Generated.Insert();
+            Map(x => x.UserName).Nullable();
+            Map(x => x.FirstName);
+            Map(x => x.LastName);
+            Map(x => x.FullName);
+            Map(x => x.Password);
+            Map(x => x.Status);
+            Map(x => x.Deactived);
+            Map(x => x.Createdby);
+            Map(x => x.CreatedDate);
+            References(x => x.Avatar).Nullable();
+            //HasManyToMany(x => x.Labels).Cascade.All();
+        }
+    }
+}
