@@ -17,17 +17,11 @@ namespace Xilion.Models
     {
         //[Obsolete]
         //private IList<Label> _labels = new List<Label>();
-        [Key]
-        public int UserId { get; set; }
         public string UserName { get; set; }
-
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string EmailId { get; set; }
-
+        public string Email { get; set; }
         public string FullName { get; set; }
-        public string Country { get; set; }
-        public string Contactno { get; set; }
         public string Password { get; set; }
         public int? Createdby { get; set; }
         public DateTime? CreatedDate { get; set; }
@@ -40,8 +34,6 @@ namespace Xilion.Models
         //    get { return _labels; }
         //    set { _labels = value; }
         //}
-        public int UserRolesId { get; set; }
-
         public ImageItem Avatar { get; set; }
     }
 

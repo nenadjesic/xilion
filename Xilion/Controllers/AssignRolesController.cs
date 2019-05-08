@@ -61,7 +61,7 @@ namespace Xilion.Controllers
                     else
                     {
 
-                        usersInRoles.UserRoleId = 0;
+                        //usersInRoles.Id = 0;
                         _usersInRoles.AssignRole(usersInRoles);
 
                         var response = new HttpResponseMessage()

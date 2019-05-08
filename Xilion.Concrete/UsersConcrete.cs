@@ -50,12 +50,12 @@ namespace Xilion.Concrete
             try
             {
                 var result = (from user in _context.Users
-                    join userinrole in _context.UsersInRoles on user.UserId equals userinrole.UserId
+                    join userinrole in _context.UsersInRoles on user.Id equals userinrole.UserId
                               where user.UserName == username && user.Password == password
 
                               select new LoginResponse
                               {
-                                  UserId = user.UserId,
+                                  UserId = user.Id,
                                   RoleId = userinrole.RoleId,
                                   Status = user.Status,
                                   UserName = user.UserName
@@ -74,7 +74,7 @@ namespace Xilion.Concrete
         public bool DeleteUsers(int userId)
         {
             var removeuser = (from user in _context.Users
-                              where user.UserId == userId
+                              where user.Id == userId
                               select user).FirstOrDefault();
             if (removeuser != null)
             {
@@ -108,7 +108,7 @@ namespace Xilion.Concrete
         public Users GetUsersbyId(int userId)
         {
             var result = (from user in _context.Users
-                          where user.UserId == userId
+                          where user.Id == userId
                           select user).FirstOrDefault();
 
             return result;
@@ -130,8 +130,7 @@ namespace Xilion.Concrete
 
         public bool UpdateUsers(Users user)
         {
-            _context.Entry(user).Property(x => x.EmailId).IsModified = true;
-            _context.Entry(user).Property(x => x.Contactno).IsModified = true;
+            _context.Entry(user).Property(x => x.Email).IsModified = true;
             _context.Entry(user).Property(x => x.Status).IsModified = true;
             _context.Entry(user).Property(x => x.FullName).IsModified = true;
             _context.Entry(user).Property(x => x.Password).IsModified = true;

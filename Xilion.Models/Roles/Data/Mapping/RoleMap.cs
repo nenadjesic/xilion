@@ -9,7 +9,6 @@ namespace Xilion.Models.Roles.Data.Mapping
     {
         public RoleMap()
         {
-            Map(x => x.RoleId).Generated.Insert();
             Map(x => x.RoleName);
             Map(x => x.Status);
         }

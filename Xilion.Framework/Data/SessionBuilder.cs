@@ -133,44 +133,16 @@ namespace Xilion.Framework.Data
                                 "NHibernate.Caches.SysCache.SysCacheProvider, NHibernate.Caches.SysCache");
                             c.UseQueryCache();
                         })
-                        //.Mappings(m => AddAssemblies(m.FluentMappings))
-                        //// TODO: There's a bug in current version of Fluent NHibernate
-                        //// When using ExportTo, conventions aren't applied
-                        //// https://groups.google.com/forum/#!topic/fluent-nhibernate/8lXr5jlgW-8
-                        ////m.FluentMappings
-                        ////.Conventions.AddFromAssemblyOf<TableNameConvention>()
-                        ////.AddFromAssemblyOf<TableNameConvention>()
-                        ////.ExportTo(@"c:\Temp")
-                        //.ExposeConfiguration(x => x.SetProperty("hbm2ddl.auto", "update"))
-                        //.BuildConfiguration();
-                    .Mappings(m =>
-                     {
-                         var assemblies = new[] { Assembly };
-                         var cfg = new AutomappingConfiguration();
-                         var persistenceModel = new CustomAutoPersistenceModel(container, cfg);
-                         persistenceModel.AddTypeSource(new CombinedAssemblyTypeSource(assemblies.Select(a => new AssemblyTypeSource(a))));
-
-                         m.UsePersistenceModel(persistenceModel);
-
-                         m.HbmMappings.AddFromAssembly(m.FluentMappings);
-
-                         m.AutoMappings.Add(persistenceModel
-                             .Conventions.AddFromAssemblyOf<NotNullConvention>()
-                             .Conventions.AddFromAssemblyOf<CacheConvention>()
-                             .UseOverridesFromAssemblyOf<PCSUserOverrides>());
-
-#if DEBUG
-                    var mappingsPath = @"C:\Temp\Mappings";
-                    if (Directory.Exists(mappingsPath))
-                    {
-                        Directory.Delete(mappingsPath, true);
-                        Directory.CreateDirectory(mappingsPath);
-
-                        m.AutoMappings.ExportTo(mappingsPath);
-                    }
-#endif
-                     })
-                .BuildConfiguration();
+                        .Mappings(m => AddAssemblies(m.FluentMappings))
+                        // TODO: There's a bug in current version of Fluent NHibernate
+                        // When using ExportTo, conventions aren't applied
+                        // https://groups.google.com/forum/#!topic/fluent-nhibernate/8lXr5jlgW-8
+                        //m.FluentMappings
+                        //.Conventions.AddFromAssemblyOf<TableNameConvention>()
+                        //.AddFromAssemblyOf<TableNameConvention>()
+                        //.ExportTo(@"c:\Temp")
+                        .ExposeConfiguration(x => x.SetProperty("hbm2ddl.auto", "update"))
+                        .BuildConfiguration();
                 }
             }
             return _configuration;

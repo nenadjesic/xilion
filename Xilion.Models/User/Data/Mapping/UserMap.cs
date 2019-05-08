@@ -9,12 +9,10 @@ namespace Xilion.Models.User.Data.Mapping
     {
         public UserMap()
         {
-            //NaturalId().Property(x=>x.UserID).ReadOnly();
-            //Map(x => x.UserId).Nullable();
-            Map(x => x.UserId).Generated.Insert();
             Map(x => x.UserName).Nullable();
             Map(x => x.FirstName);
             Map(x => x.LastName);
+            Map(x => x.Email);
             Map(x => x.FullName);
             Map(x => x.Password);
             Map(x => x.Status);

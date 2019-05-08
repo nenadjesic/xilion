@@ -72,15 +72,15 @@ namespace Xilion.Concrete
         public List<AssignRolesViewModel> GetAssignRoles()
         {
             var result = (from usertb in _context.UsersInRoles
-                          join role in _context.Role on usertb.RoleId equals role.RoleId
-                          join user in _context.Users on usertb.UserId equals user.UserId
+                          join role in _context.Role on usertb.RoleId equals role.Id
+                          join user in _context.Users on usertb.UserId equals user.Id
                           select new AssignRolesViewModel()
                           {
                               RoleName = role.RoleName,
                               RoleId = usertb.RoleId,
                               UserName = role.RoleName,
                               UserId = usertb.UserId,
-                              UserRoleId = usertb.UserRoleId
+                              UserRoleId = usertb.Id
 
                           }).ToList();
 

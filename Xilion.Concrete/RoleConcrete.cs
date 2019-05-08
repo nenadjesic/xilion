@@ -35,7 +35,7 @@ namespace Xilion.Concrete
         public bool DeleteRole(int roleId)
         {
             var roledata = (from role in _context.Role
-                            where role.RoleId == roleId
+                            where role.Id == roleId
                             select role).FirstOrDefault();
 
             if (roledata != null)
@@ -61,7 +61,7 @@ namespace Xilion.Concrete
         public Role GetRolebyId(int roleId)
         {
             var result = (from role in _context.Role
-                          where role.RoleId == roleId
+                          where role.Id == roleId
                           select role).FirstOrDefault();
 
             return result;

@@ -12,6 +12,6 @@ namespace Xilion.ViewModels
         public string UserName { get; set; }
         public int RoleId { get; set; }
         public string RoleName { get; set; }
-        public int UserRoleId { get; set; }
+        public long UserRoleId { get; set; }
     }
 }

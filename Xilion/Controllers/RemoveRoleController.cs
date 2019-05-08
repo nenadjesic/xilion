@@ -33,7 +33,7 @@ namespace Xilion.Controllers
                 if (_usersInRoles.CheckRoleExists(usersInRoles))
                 {
                   
-                    usersInRoles.UserRoleId = 0;
+                    //usersInRoles.Id = 0;
                     _usersInRoles.RemoveRole(usersInRoles);
 
                     var response = new HttpResponseMessage()
