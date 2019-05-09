@@ -58,8 +58,8 @@ namespace Xilion.Controllers
                 {
                     var userId = this.User.FindFirstValue(ClaimTypes.Name);
                     var tempUsers = AutoMapper.Mapper.Map<Users>(users);
-                    tempUsers.CreatedDate = DateTime.Now;
-                    tempUsers.Createdby = Convert.ToInt32(userId);
+                    tempUsers.CreatedOn = DateTime.Now;
+                    tempUsers.CreatedBy = userId;
                     tempUsers.Password = EncryptionLibrary.EncryptText(users.Password);
                     _users.InsertUsers(tempUsers);
 
@@ -92,7 +92,7 @@ namespace Xilion.Controllers
             {
 
                 var tempUsers = AutoMapper.Mapper.Map<Users>(users);
-                tempUsers.CreatedDate = DateTime.Now;
+                tempUsers.CreatedOn = DateTime.Now;
                 _users.UpdateUsers(tempUsers);
 
                 var response = new HttpResponseMessage()

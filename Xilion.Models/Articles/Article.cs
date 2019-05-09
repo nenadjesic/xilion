@@ -26,11 +26,7 @@ namespace Xilion.Models.Articles
         /// <summary>
         ///   Gets or sets article title.
         /// </summary>
-        public virtual string Title
-        {
-            get { return MetaData.GetValue<string>("Title"); }
-            set { MetaData.SetValue("Title", value); }
-        }
+        public virtual string Title { get; set; }
 
         /// <summary>
         ///   Gets or sets article summary.

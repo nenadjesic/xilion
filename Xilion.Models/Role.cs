@@ -14,8 +14,8 @@ namespace Xilion.Models
     {
         [Required(ErrorMessage = "Enter Role name")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        public string RoleName { get; set; }
+        public virtual string RoleName { get; set; }
 
-        public bool Status { get; set; }
+        public virtual bool Status { get; set; }
     }
 }

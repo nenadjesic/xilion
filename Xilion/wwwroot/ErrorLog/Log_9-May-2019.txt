@@ -1,0 +1,1011 @@
+
+5/9/2019 5:31:54 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 165
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 84
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}FluentNHibernate.Cfg.FluentConfigurationException: An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+ ---> System.TypeLoadException: Method 'OnPostDeleteAsync' in type 'NHibernate.Search.Event.FullTextIndexEventListener' from assembly 'NHibernate.Search, Version=2.0.2.4000, Culture=neutral, PublicKeyToken=null' does not have an implementation.
+   at Xilion.Framework.Data.SessionBuilder.InitializeSearch(Configuration configuration)
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   --- End of inner exception stack trace ---
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+
+
+5/9/2019 7:31:45 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 165
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 84
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}FluentNHibernate.Cfg.FluentConfigurationException: An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+ ---> System.TypeLoadException: Method 'OnPostDeleteAsync' in type 'NHibernate.Search.Event.FullTextIndexEventListener' from assembly 'NHibernate.Search, Version=2.0.2.4000, Culture=neutral, PublicKeyToken=null' does not have an implementation.
+   at Xilion.Framework.Data.SessionBuilder.InitializeSearch(Configuration configuration)
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   --- End of inner exception stack trace ---
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+
+
+5/9/2019 7:34:01 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 165
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 84
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}FluentNHibernate.Cfg.FluentConfigurationException: An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+ ---> System.TypeLoadException: Method 'OnPostDeleteAsync' in type 'NHibernate.Search.Event.FullTextIndexEventListener' from assembly 'NHibernate.Search, Version=2.0.2.4000, Culture=neutral, PublicKeyToken=null' does not have an implementation.
+   at Xilion.Framework.Data.SessionBuilder.InitializeSearch(Configuration configuration)
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   --- End of inner exception stack trace ---
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+
+
+5/9/2019 7:42:18 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 165
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 84
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}FluentNHibernate.Cfg.FluentConfigurationException: An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+ ---> System.TypeLoadException: Method 'OnPostDeleteAsync' in type 'NHibernate.Search.Event.FullTextIndexEventListener' from assembly 'NHibernate.Search, Version=2.0.2.4000, Culture=neutral, PublicKeyToken=null' does not have an implementation.
+   at Xilion.Framework.Data.SessionBuilder.InitializeSearch(Configuration configuration)
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   --- End of inner exception stack trace ---
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+
+
+5/9/2019 8:45:27 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 165
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 84
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}FluentNHibernate.Cfg.FluentConfigurationException: An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+ ---> System.TypeLoadException: Method 'OnPostDeleteAsync' in type 'NHibernate.Search.Event.FullTextIndexEventListener' from assembly 'NHibernate.Search, Version=2.0.2.4000, Culture=neutral, PublicKeyToken=null' does not have an implementation.
+   at Xilion.Framework.Data.SessionBuilder.InitializeSearch(Configuration configuration)
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   --- End of inner exception stack trace ---
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+
+
+5/9/2019 8:46:55 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 165
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 84
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}FluentNHibernate.Cfg.FluentConfigurationException: An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+ ---> System.TypeLoadException: Method 'OnPostDeleteAsync' in type 'NHibernate.Search.Event.FullTextIndexEventListener' from assembly 'NHibernate.Search, Version=2.0.2.4000, Culture=neutral, PublicKeyToken=null' does not have an implementation.
+   at Xilion.Framework.Data.SessionBuilder.InitializeSearch(Configuration configuration)
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   --- End of inner exception stack trace ---
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+
+
+5/9/2019 8:53:30 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 160
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 86
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}FluentNHibernate.Cfg.FluentConfigurationException: An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+ ---> System.ArgumentException: Cannot create an instance of FluentNHibernate.Automapping.AutoMapping`1[System.Reflection.Internal.ObjectPool`1[T]] because Type.ContainsGenericParameters is true.
+   at System.RuntimeType.CreateInstanceCheckThis()
+   at System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes)
+   at FluentNHibernate.Automapping.AutoMapper.ApplyOverrides(Type classType, IList`1 mappedMembers, ClassMappingBase mapping)
+   at FluentNHibernate.Automapping.AutoMapper.MergeMap(Type classType, ClassMappingBase mapping, IList`1 mappedMembers)
+   at FluentNHibernate.Automapping.AutoMapper.Map(Type classType, List`1 types)
+   at FluentNHibernate.Automapping.AutoPersistenceModel.AddMapping(Type type)
+   at FluentNHibernate.Automapping.AutoPersistenceModel.CompileMappings()
+   at FluentNHibernate.Automapping.AutoPersistenceModel.Configure(Configuration configuration)
+   at FluentNHibernate.Cfg.AutoMappingsContainer.Apply(Configuration cfg, PersistenceModel model)
+   at FluentNHibernate.Cfg.MappingConfiguration.Apply(Configuration cfg)
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   --- End of inner exception stack trace ---
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+  * Database was not configured through Database method.
+
+
+
+5/9/2019 9:11:15 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 160
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 86
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}FluentNHibernate.Cfg.FluentConfigurationException: An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+ ---> System.ArgumentException: Cannot create an instance of FluentNHibernate.Automapping.AutoMapping`1[System.Reflection.Internal.ObjectPool`1[T]] because Type.ContainsGenericParameters is true.
+   at System.RuntimeType.CreateInstanceCheckThis()
+   at System.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, Object[] args, CultureInfo culture, Object[] activationAttributes)
+   at FluentNHibernate.Automapping.AutoMapper.ApplyOverrides(Type classType, IList`1 mappedMembers, ClassMappingBase mapping)
+   at FluentNHibernate.Automapping.AutoMapper.MergeMap(Type classType, ClassMappingBase mapping, IList`1 mappedMembers)
+   at FluentNHibernate.Automapping.AutoMapper.Map(Type classType, List`1 types)
+   at FluentNHibernate.Automapping.AutoPersistenceModel.AddMapping(Type type)
+   at FluentNHibernate.Automapping.AutoPersistenceModel.CompileMappings()
+   at FluentNHibernate.Automapping.AutoPersistenceModel.Configure(Configuration configuration)
+   at FluentNHibernate.Cfg.AutoMappingsContainer.Apply(Configuration cfg, PersistenceModel model)
+   at FluentNHibernate.Cfg.MappingConfiguration.Apply(Configuration cfg)
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   --- End of inner exception stack trace ---
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+
+
+
+5/9/2019 9:19:52 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 160
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 86
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}NHibernate.InvalidProxyTypeException: The following types may not be used as proxies:
+Xilion.Models.Role: method get_RoleName should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Role: method set_RoleName should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Role: method get_Status should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Role: method set_Status should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.UsersInRoles: method get_RoleId should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.UsersInRoles: method set_RoleId should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.UsersInRoles: method get_UserId should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.UsersInRoles: method set_UserId should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method get_UserName should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method set_UserName should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method get_FirstName should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method set_FirstName should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method get_LastName should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method set_LastName should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method get_Email should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method set_Email should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method get_FullName should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method set_FullName should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method get_Password should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method set_Password should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method get_Createdby should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method set_Createdby should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method get_CreatedDate should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method set_CreatedDate should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method get_Status should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method set_Status should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method get_Deactived should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method set_Deactived should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method get_Avatar should be 'public/protected virtual' or 'protected internal virtual'
+Xilion.Models.Users: method set_Avatar should be 'public/protected virtual' or 'protected internal virtual'
+   at NHibernate.Cfg.Configuration.ValidateEntities()
+   at NHibernate.Cfg.Configuration.Validate()
+   at NHibernate.Cfg.Configuration.BuildSessionFactory()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+
+5/9/2019 9:47:36 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 154
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 86
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}NHibernate.HibernateException: could not instantiate CacheProvider: NHibernate.Caches.SysCache.SysCacheProvider, NHibernate.Caches.SysCache ---> System.IO.FileNotFoundException: Could not load file or assembly 'NHibernate.Caches.SysCache, Culture=neutral, PublicKeyToken=null'. The system cannot find the file specified.
+   at System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, IntPtr ptrLoadContextBinder)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, IntPtr ptrLoadContextBinder)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, StackCrawlMark& stackMark, IntPtr pPrivHostBinder)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, StackCrawlMark& stackMark)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError)
+   at NHibernate.Cfg.SettingsFactory.CreateCacheProvider(IDictionary`2 properties)
+   --- End of inner exception stack trace ---
+   at NHibernate.Cfg.SettingsFactory.CreateCacheProvider(IDictionary`2 properties)
+   at NHibernate.Cfg.SettingsFactory.BuildSettings(IDictionary`2 properties)
+   at NHibernate.Cfg.Configuration.BuildSettings()
+   at NHibernate.Cfg.Configuration.BuildSessionFactory()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+
+5/9/2019 10:03:15 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 154
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 86
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}FluentNHibernate.Cfg.FluentConfigurationException: An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+ ---> System.ArgumentException: An item with the same key has already been added. Key: cache.use_second_level_cache
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at NHibernate.Cfg.Configuration.AddProperties(IDictionary`2 additionalProperties)
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   --- End of inner exception stack trace ---
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+
+
+
+5/9/2019 10:07:09 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 153
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 86
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}NHibernate.HibernateException: could not instantiate CacheProvider: NHibernate.Caches.SysCache.SysCacheProvider, NHibernate.Caches.SysCache ---> System.IO.FileNotFoundException: Could not load file or assembly 'NHibernate.Caches.SysCache, Culture=neutral, PublicKeyToken=null'. The system cannot find the file specified.
+   at System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, IntPtr ptrLoadContextBinder)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, IntPtr ptrLoadContextBinder)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, StackCrawlMark& stackMark, IntPtr pPrivHostBinder)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, StackCrawlMark& stackMark)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError)
+   at NHibernate.Cfg.SettingsFactory.CreateCacheProvider(IDictionary`2 properties)
+   --- End of inner exception stack trace ---
+   at NHibernate.Cfg.SettingsFactory.CreateCacheProvider(IDictionary`2 properties)
+   at NHibernate.Cfg.SettingsFactory.BuildSettings(IDictionary`2 properties)
+   at NHibernate.Cfg.Configuration.BuildSettings()
+   at NHibernate.Cfg.Configuration.BuildSessionFactory()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+
+5/9/2019 10:38:36 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 153
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 86
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}NHibernate.HibernateException: could not instantiate CacheProvider: NHibernate.Caches.SysCache.SysCacheProvider, NHibernate.Caches.SysCache ---> System.IO.FileNotFoundException: Could not load file or assembly 'NHibernate.Caches.SysCache, Culture=neutral, PublicKeyToken=null'. The system cannot find the file specified.
+   at System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, RuntimeAssembly locationHint, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, IntPtr ptrLoadContextBinder)
+   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, IntPtr pPrivHostBinder, Boolean throwOnFileNotFound, IntPtr ptrLoadContextBinder)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, StackCrawlMark& stackMark, IntPtr pPrivHostBinder)
+   at System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, StackCrawlMark& stackMark)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NHibernate.Util.ReflectHelper.TypeFromAssembly(AssemblyQualifiedTypeName name, Boolean throwOnError)
+   at NHibernate.Cfg.SettingsFactory.CreateCacheProvider(IDictionary`2 properties)
+   --- End of inner exception stack trace ---
+   at NHibernate.Cfg.SettingsFactory.CreateCacheProvider(IDictionary`2 properties)
+   at NHibernate.Cfg.SettingsFactory.BuildSettings(IDictionary`2 properties)
+   at NHibernate.Cfg.Configuration.BuildSettings()
+   at NHibernate.Cfg.Configuration.BuildSessionFactory()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+
+5/9/2019 10:45:06 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 171
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 84
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}FluentNHibernate.Cfg.FluentConfigurationException: An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+ ---> System.TypeLoadException: Method 'OnPostDeleteAsync' in type 'NHibernate.Search.Event.FullTextIndexEventListener' from assembly 'NHibernate.Search, Version=2.0.2.4000, Culture=neutral, PublicKeyToken=null' does not have an implementation.
+   at Xilion.Framework.Data.SessionBuilder.InitializeSearch(Configuration configuration)
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   --- End of inner exception stack trace ---
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+
+
+5/9/2019 10:51:55 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 171
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 84
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}FluentNHibernate.Cfg.FluentConfigurationException: An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+ ---> System.TypeLoadException: Method 'OnPostDeleteAsync' in type 'NHibernate.Search.Event.FullTextIndexEventListener' from assembly 'NHibernate.Search, Version=2.0.2.4000, Culture=neutral, PublicKeyToken=null' does not have an implementation.
+   at Xilion.Framework.Data.SessionBuilder.InitializeSearch(Configuration configuration)
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   --- End of inner exception stack trace ---
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+
+
+5/9/2019 11:08:02 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 158
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 84
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}System.TypeLoadException: Could not load type 'System.Web.Caching.CacheItemPriority' from assembly 'System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.
+   at NHibernate.Caches.SysCache.SysCacheProvider.BuildCache(String regionName, IDictionary`2 properties)
+   at NHibernate.Cache.CacheFactory.CreateCache(String usage, String name, Boolean mutable, Settings settings, IDictionary`2 properties)
+   at NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   at NHibernate.Cfg.Configuration.BuildSessionFactory()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+
+5/9/2019 11:10:55 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 158
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 84
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}System.TypeLoadException: Could not load type 'System.Web.Caching.CacheItemPriority' from assembly 'System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.
+   at NHibernate.Caches.SysCache.SysCacheProvider.BuildCache(String regionName, IDictionary`2 properties)
+   at NHibernate.Cache.CacheFactory.CreateCache(String usage, String name, Boolean mutable, Settings settings, IDictionary`2 properties)
+   at NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   at NHibernate.Cfg.Configuration.BuildSessionFactory()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+
+5/9/2019 11:24:04 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 164
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 84
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}System.TypeLoadException: Could not load type 'System.Web.Caching.CacheItemPriority' from assembly 'System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.
+   at NHibernate.Caches.SysCache.SysCacheProvider.BuildCache(String regionName, IDictionary`2 properties)
+   at NHibernate.Cache.CacheFactory.CreateCache(String usage, String name, Boolean mutable, Settings settings, IDictionary`2 properties)
+   at NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   at NHibernate.Cfg.Configuration.BuildSessionFactory()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+
+5/9/2019 11:26:37 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 164
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 84
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}System.TypeLoadException: Could not load type 'System.Web.Caching.CacheItemPriority' from assembly 'System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.
+   at NHibernate.Caches.SysCache.SysCacheProvider.BuildCache(String regionName, IDictionary`2 properties)
+   at NHibernate.Cache.CacheFactory.CreateCache(String usage, String name, Boolean mutable, Settings settings, IDictionary`2 properties)
+   at NHibernate.Impl.SessionFactoryImpl..ctor(Configuration cfg, IMapping mapping, Settings settings, EventListeners listeners)
+   at NHibernate.Cfg.Configuration.BuildSessionFactory()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+
+5/9/2019 11:41:53 PM
+------------------------------------------------------------------------------------------------
+Controller Name :- Authenticate
+Action Method Name :- Post
+------------------------------------------------------------------------------------------------
+Microsoft.AspNetCore.Mvc.Filters.ExceptionContext
+Message ---
+{0}An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+Source ---
+{0}FluentNHibernate
+StackTrace ---
+{0}   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+   at Xilion.Framework.Data.SessionBuilder.GetSessionFactory() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 164
+   at Xilion.Framework.Data.SessionBuilder.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 84
+   at Xilion.Framework.Data.Repositories.Repository`1.GetSession() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 243
+   at Xilion.Framework.Data.Repositories.Repository`1.Query[TU]() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 234
+   at Xilion.Framework.Data.Repositories.Repository`1.Query() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 147
+   at Xilion.Framework.Data.Repositories.Repository`1.GetAll() in D:\PROJEKTI\xilion\Xilion.Framework\Data\Repositories\Repository.cs:line 84
+   at Xilion.Concrete.UsersConcrete.AuthenticateUsers(String username, String password) in D:\PROJEKTI\xilion\Xilion.Concrete\UsersConcrete.cs:line 37
+   at Xilion.Controllers.AuthenticateController.Post(LoginRequestViewModel value) in D:\PROJEKTI\xilion\Xilion\Controllers\AuthenticateController.cs:line 42
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+TargetSite ---
+{0}NHibernate.ISessionFactory BuildSessionFactory()
+Inner Exception is {0}FluentNHibernate.Cfg.FluentConfigurationException: An invalid or incomplete configuration was used while creating a SessionFactory. Check PotentialReasons collection, and InnerException for more detail.
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+ ---> NHibernate.MappingException: An audited relation from Xilion.Models.Users.Avatar to a not audited entity Xilion.Models.Media.Images.ImageItem! Such mapping is possible, but has to be explicitly defined using [Audited(TargetAuditMode = RelationTargetAuditMode.NotAudited)].
+   at NHibernate.Envers.Configuration.Metadata.AuditMetadataGenerator.GetReferencedIdMappingData(String entityName, String referencedEntityName, PropertyAuditingData propertyAuditingData, Boolean allowNotAuditedTarget) in D:\stuff\code\envers\Src\NHibernate.Envers\Configuration\Metadata\AuditMetadataGenerator.cs:line 537
+   at NHibernate.Envers.Configuration.Metadata.ToOneRelationMetadataGenerator.AddToOne(XElement parent, PropertyAuditingData propertyAuditingData, IValue value, ICompositeMapperBuilder mapper, String entityName, Boolean insertable) in D:\stuff\code\envers\Src\NHibernate.Envers\Configuration\Metadata\ToOneRelationMetadataGenerator.cs:line 26
+   at NHibernate.Envers.Configuration.Metadata.AuditMetadataGenerator.addValueInSecondPass(XElement parent, IValue value, ICompositeMapperBuilder currentMapper, String entityName, EntityXmlMappingData xmlMappingData, PropertyAuditingData propertyAuditingData, Boolean insertable, Boolean processModifiedFlag) in D:\stuff\code\envers\Src\NHibernate.Envers\Configuration\Metadata\AuditMetadataGenerator.cs:line 149
+   at NHibernate.Envers.Configuration.Metadata.AuditMetadataGenerator.addProperties(XElement parent, IEnumerable`1 properties, ICompositeMapperBuilder currentMapper, ClassAuditingData auditingData, String entityName, EntityXmlMappingData xmlMappingData, Boolean firstPass) in D:\stuff\code\envers\Src\NHibernate.Envers\Configuration\Metadata\AuditMetadataGenerator.cs:line 205
+   at NHibernate.Envers.Configuration.Metadata.AuditMetadataGenerator.GenerateSecondPass(PersistentClass pc, ClassAuditingData auditingData, EntityXmlMappingData xmlMappingData) in D:\stuff\code\envers\Src\NHibernate.Envers\Configuration\Metadata\AuditMetadataGenerator.cs:line 500
+   at NHibernate.Envers.Configuration.EntitiesConfigurator.Configure(Configuration cfg, IMetaDataStore metaDataStore, GlobalConfiguration globalCfg, AuditEntitiesConfiguration verEntCfg, XDocument revisionInfoXmlMapping, XElement revisionInfoRelationMapping) in D:\stuff\code\envers\Src\NHibernate.Envers\Configuration\EntitiesConfigurator.cs:line 22
+   at NHibernate.Envers.Configuration.AuditConfiguration..ctor(Configuration cfg, IMetaDataProvider metaDataProvider) in D:\stuff\code\envers\Src\NHibernate.Envers\Configuration\AuditConfiguration.cs:line 42
+   at NHibernate.Envers.Configuration.AuditConfiguration.GetFor(Configuration cfg) in D:\stuff\code\envers\Src\NHibernate.Envers\Configuration\AuditConfiguration.cs:line 68
+   at NHibernate.Cfg.NhConfigurationExtension.IntegrateWithEnvers(Configuration configuration, AuditEventListener auditEventListener, IMetaDataProvider metaDataProvider) in D:\stuff\code\envers\Src\NHibernate.Envers\Configuration\NhConfigurationExtension.cs:line 28
+   at Xilion.Framework.Data.SessionBuilder.InitializeEnvers(Configuration configuration) in D:\PROJEKTI\xilion\Xilion.Framework\Data\SessionBuilder.cs:line 180
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   --- End of inner exception stack trace ---
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildConfiguration()
+   at FluentNHibernate.Cfg.FluentConfiguration.BuildSessionFactory()
+
+  * Database was not configured through Database method.
+  * No mappings were configured through the Mappings method.
+
+

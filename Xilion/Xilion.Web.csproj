@@ -36,7 +36,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="bin\Debug\netcoreapp2.2\hibernate.cfg.xml" />
     <Content Include="obj\project.assets.json" />
     <Content Include="obj\Xilion.Web.csproj.nuget.dgspec.json" />
   </ItemGroup>
@@ -57,6 +56,10 @@
     <ProjectReference Include="..\Xilion.Interface\Xilion.Interface.csproj" />
     <ProjectReference Include="..\Xilion.Models\Xilion.Models.csproj" />
     <ProjectReference Include="..\Xilion.ViewModels\Xilion.ViewModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\netcoreapp2.2\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

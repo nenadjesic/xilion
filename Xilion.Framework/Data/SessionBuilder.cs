@@ -190,10 +190,11 @@ namespace Xilion.Framework.Data
 
             configuration.SetListener(ListenerType.PostUpdate, new FullTextIndexEventListener());
             configuration.SetListener(ListenerType.PostInsert, new FullTextIndexEventListener());
-            configuration.SetListener(ListenerType.PostDelete, new FullTextIndexEventListener());
+            //configuration.SetListener(ListenerType.PostDelete, new FullTextIndexEventListener());
             configuration.SetListener(ListenerType.PostCollectionRecreate, new FullTextIndexCollectionEventListener());
             configuration.SetListener(ListenerType.PostCollectionRemove, new FullTextIndexCollectionEventListener());
             configuration.SetListener(ListenerType.PostCollectionUpdate, new FullTextIndexCollectionEventListener());
+
         }
 
         private void InitializeTrackableListener(NHibernate.Cfg.Configuration configuration)

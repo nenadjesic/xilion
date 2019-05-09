@@ -9,32 +9,32 @@ using System.Threading.Tasks;
 using Xilion.Models.Media.Images;
 using Xilion.Models.Classifications;
 using Xilion.Models;
+using NHibernate.Envers.Configuration.Attributes;
+using NHibernate.Search.Attributes;
 
 namespace Xilion.Models
 {
     [Table("Users")]
+    [Audited]
+    [Indexed]
     public class Users : TrackableEntity
     {
-        //[Obsolete]
-        //private IList<Label> _labels = new List<Label>();
-        public string UserName { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string FullName { get; set; }
-        public string Password { get; set; }
-        public int? Createdby { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public bool Status { get; set; }
-        public bool Deactived { get; set; }
+        public virtual  string UserName { get; set; }
 
-        //[Obsolete]
-        //public virtual IList<Label> Labels
-        //{
-        //    get { return _labels; }
-        //    set { _labels = value; }
-        //}
-        public ImageItem Avatar { get; set; }
+        public virtual string Password { get; set; }
+
+        public virtual string FirstName { get; set; }
+
+        public virtual string LastName { get; set; }
+
+        public virtual string Email { get; set; }
+
+        public virtual string FullName { get; set; }
+
+        public virtual bool Status { get; set; }
+
+        public virtual bool Deactived { get; set; }
+
+        public virtual ImageItem Avatar { get; set; }
     }
-
 }

@@ -9,7 +9,7 @@ namespace Xilion.Models.User.Data.Mapping
     {
         public UserMap()
         {
-            Map(x => x.UserName).Nullable();
+            Map(x => x.UserName);
             Map(x => x.FirstName);
             Map(x => x.LastName);
             Map(x => x.Email);
@@ -17,10 +17,7 @@ namespace Xilion.Models.User.Data.Mapping
             Map(x => x.Password);
             Map(x => x.Status);
             Map(x => x.Deactived);
-            Map(x => x.Createdby);
-            Map(x => x.CreatedDate);
             References(x => x.Avatar).Nullable();
-            //HasManyToMany(x => x.Labels).Cascade.All();
         }
     }
 }
