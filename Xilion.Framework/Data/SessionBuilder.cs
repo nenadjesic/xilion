@@ -5,6 +5,7 @@ using NHibernate;
 using NHibernate.Bytecode;
 using NHibernate.Cfg;
 using NHibernate.Envers.Configuration.Attributes;
+using NHibernate.Envers.Event;
 using NHibernate.Event;
 using NHibernate.Search.Event;
 using NHibernate.Search.Store;
@@ -175,27 +176,18 @@ namespace Xilion.Framework.Data
             configuration.SetProperty("nhibernate.envers.audit_table_suffix", "_Audit");
             configuration.SetProperty("nhibernate.envers.revision_field_name", "Revision");
             configuration.SetProperty("nhibernate.envers.revision_type_field_name", "RevisionType");
-            // TODO: The following property is set to true, since otherwise Envers tries to save null to all 
-            // audit property values when doing delete. Alternative is to allow nulls for all audited columns in db.
             configuration.SetProperty("nhibernate.envers.store_data_at_delete", "true");
             configuration.IntegrateWithEnvers(new AttributeConfiguration());
         }
 
         private static void InitializeSearch(NHibernate.Cfg.Configuration configuration)
         {
-            configuration.SetProperty("hibernate.search.default.directory_provider",
-                                      typeof (FSDirectoryProvider).AssemblyQualifiedName);
-            // TODO: Make the index folder configurable
-            configuration.SetProperty("hibernate.search.default.indexBase", LuceneIndex.IndexLocation);
-
-            configuration.SetListener(ListenerType.PostUpdate, new FullTextIndexEventListener());
-            configuration.SetListener(ListenerType.PostInsert, new FullTextIndexEventListener());
-            //configuration.SetListener(ListenerType.PostDelete, new FullTextIndexEventListener());
-            configuration.SetListener(ListenerType.PostCollectionRecreate, new FullTextIndexCollectionEventListener());
-            configuration.SetListener(ListenerType.PostCollectionRemove, new FullTextIndexCollectionEventListener());
-            configuration.SetListener(ListenerType.PostCollectionUpdate, new FullTextIndexCollectionEventListener());
+            configuration.SetListener(ListenerType.PostUpdate, new AuditEventListener());
+            configuration.SetListener(ListenerType.PostInsert, new AuditEventListener());
+            configuration.SetListener(ListenerType.PostDelete, new AuditEventListener());
 
         }
+
 
         private void InitializeTrackableListener(NHibernate.Cfg.Configuration configuration)
         {
