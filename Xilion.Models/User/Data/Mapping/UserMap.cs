@@ -17,7 +17,11 @@ namespace Xilion.Models.User.Data.Mapping
             Map(x => x.Password);
             Map(x => x.Status);
             Map(x => x.Deactived);
-            References(x => x.Avatar).Nullable();
+            References(x => x.Avatar)
+               .ForeignKey("FK_User_ImageItem")
+               .Nullable()
+               .Cascade.SaveUpdate()
+               .Column("ImageItemID").Nullable();
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using Microsoft.AspNetCore.Http;
 using NHibernate;
 using NHibernate.Search;
 using NHibernate.Search.Attributes;
@@ -15,6 +16,7 @@ namespace Xilion.Framework.Data
     {
         public const string IndexLocation = "~/_content/Index";
 
+        [Obsolete]
         public static void Reindex()
         {
             var entityTypes = new List<Type>();
@@ -26,6 +28,7 @@ namespace Xilion.Framework.Data
                     ReindexEntity(t);
         }
 
+        [Obsolete]
         private static void ReindexEntity(Type t)
         {
             bool stop = false;

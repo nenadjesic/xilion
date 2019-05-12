@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using Xilion.Framework.Configuration;
+using HttpContext = Xilion.Framework.Web.HttpContext;
 
 namespace Xilion.Models.Localization
 {
@@ -17,7 +18,7 @@ namespace Xilion.Models.Localization
         private static readonly CultureInfo _defaultCulture;
         private static readonly CultureInfo[] _cultures;
         private static CultureInfo _culture;
-        private static IHttpContextAccessor _httpContextAccessor;
+
         /// <summary>
         ///   Initialization.
         /// </summary>
@@ -64,10 +65,10 @@ namespace Xilion.Models.Localization
         {       
             get
             {
-                var httpContext = _httpContextAccessor.HttpContext;
-                _culture = (httpContext.Items[CmsContentCultureKey] == null)
+
+                _culture = (HttpContext.Current.Items[CmsContentCultureKey] == null)
                                ? DefaultCulture
-                               : (CultureInfo)httpContext.Items[CmsContentCultureKey];
+                               : (CultureInfo)HttpContext.Current.Items[CmsContentCultureKey];
                 return _culture;
             }
         }

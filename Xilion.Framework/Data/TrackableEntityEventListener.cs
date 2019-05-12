@@ -6,13 +6,14 @@ using NHibernate.Event.Default;
 using NHibernate.Proxy;
 using Xilion.Framework.Domain;
 using Xilion.Framework.Logging;
+using HttpContext = Xilion.Framework.Web.HttpContext;
 
 namespace Xilion.Framework.Data
 {
     public class TrackableEntityEventListener : DefaultSaveOrUpdateEventListener
     {
         private static readonly ILogger _log = LogManager.GetLogger<TrackableEntityEventListener>();
-        private static Microsoft.AspNetCore.Http.IHttpContextAccessor _httpContextAccessor;
+
         protected override object EntityIsPersistent(SaveOrUpdateEvent e)
         {
             if (e.Entity is INHibernateProxy) return base.EntityIsPersistent(e);
@@ -67,10 +68,9 @@ namespace Xilion.Framework.Data
 
         private static string GetUsersName()
         {
-            var httpContext = _httpContextAccessor.HttpContext;
             var Usersname = Thread.CurrentPrincipal.Identity.Name;
-            if (httpContext.User != null)
-                Usersname = httpContext.User.Identity.Name;
+            if (HttpContext.Current.User != null)
+                Usersname = HttpContext.Current.User.Identity.Name;
 
             return Usersname;
         }

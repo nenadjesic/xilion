@@ -24,13 +24,13 @@
     <PackageReference Include="Core.Google.Gdata.YouTube" Version="1.0.0" />
     <PackageReference Include="FluentNHibernate" Version="2.1.2" />
     <PackageReference Include="Google.Gdata.Client.Core" Version="1.0.2" />
+    <PackageReference Include="Lucene.Net.Core" Version="4.9.0" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="NHibernate" Version="5.2.5" />
     <PackageReference Include="NHibernate.Envers" Version="5.2.1" />
-    <PackageReference Include="NHibernate.Search" Version="2.0.2.4000" />
     <PackageReference Include="StructureMap" Version="4.7.1" />
     <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
     <PackageReference Include="WebMatrix.WebData" Version="2.0.30506" />

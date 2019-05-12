@@ -19,6 +19,7 @@ using Microsoft.IdentityModel.Tokens;
 using Xilion.Framework.Data;
 using Xilion.Models.User.Data;
 using Xilion.Models.User.Data.Default;
+using Xilion.Framework.Web;
 
 namespace Xilion
 {
@@ -31,8 +32,8 @@ namespace Xilion
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+    // This method gets called by the runtime. Use this method to add services to the container.
+    public void ConfigureServices(IServiceCollection services)
         {
 
             #region MyRegion
@@ -82,8 +83,7 @@ namespace Xilion
                 var actionContext = implementationFactory.GetService<IActionContextAccessor>().ActionContext;
                 return new UrlHelper(actionContext);
             });
-            services.AddTransient<ISessionBuilder, SessionBuilder>();
-            services.AddTransient<IUserRepository, UserRepository>();
+
             #endregion
 
             services.AddMvc(options => { options.Filters.Add(typeof(CustomExceptionFilterAttribute)); })
@@ -92,7 +92,10 @@ namespace Xilion
                 {
                     options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
                 });
-
+            services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddHttpContextAccessorS();
+            services.AddTransient<ISessionBuilder, SessionBuilder>();
+            services.AddTransient<IUserRepository, UserRepository>();
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -128,6 +131,7 @@ namespace Xilion
             app.UseSpaStaticFiles();
             app.UseAuthentication();
             app.UseCors("CorsPolicy");
+            app.UseStaticHttpContextS();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

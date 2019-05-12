@@ -15,13 +15,14 @@ using Xilion.Framework.Queries;
 using Xilion.Framework.Configuration;
 using System.Globalization;
 using Microsoft.AspNetCore.Http;
+using HttpContext = Xilion.Framework.Web.HttpContext;
 
 namespace Xilion.Models.Core.Services
 {
     public abstract class CmsService<T> where T : Entity
     {
         private readonly IRepository<T> _repository;
-        private static IHttpContextAccessor _httpContextAccessor;
+
         protected CmsService(IRepository<T> repository)
         {
             _repository = repository;
@@ -149,9 +150,9 @@ namespace Xilion.Models.Core.Services
                 if (String.IsNullOrEmpty(trackable.CreatedBy))
                     trackable.UpdatedBy =
                         trackable.CreatedBy =
-                        String.IsNullOrWhiteSpace(_httpContextAccessor.HttpContext.User.Identity.Name)
+                        String.IsNullOrWhiteSpace(HttpContext.Current.User.Identity.Name)
                             ? "system"
-                            : _httpContextAccessor.HttpContext.User.Identity.Name;
+                            : HttpContext.Current.User.Identity.Name;
 
                 if (trackable.CreatedOn < DateTime.Now.AddYears(-50))
                     trackable.UpdatedOn = trackable.CreatedOn = DateTime.Now;
@@ -167,7 +168,7 @@ namespace Xilion.Models.Core.Services
             if(trackableQuery != null)
             {
                 if (trackableQuery.Owner == "$")
-                    trackableQuery.CreatedBy = _httpContextAccessor.HttpContext.User.Identity.Name;
+                    trackableQuery.CreatedBy = HttpContext.Current.User.Identity.Name;
             }
             // if WorkflowQuery
             var workflowQuery = query as WorkflowQuery<T>;

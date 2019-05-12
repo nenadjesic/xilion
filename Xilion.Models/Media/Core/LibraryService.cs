@@ -8,17 +8,17 @@ using Xilion.Models.Media.Extensions;
 using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.AspNetCore.Http;
+using HttpContext = Xilion.Framework.Web.HttpContext;
 
 namespace Xilion.Models.Media.Core
 {
     public class LibraryService : CmsService<Library>
     {
         private readonly ILibraryRepository _libraryRepository;
-        private static IHttpContextAccessor _httpContextAccessor;
-        public LibraryService(ILibraryRepository libraryRepository, IHttpContextAccessor httpContextAccessor) : base(libraryRepository)
+
+        public LibraryService(ILibraryRepository libraryRepository) : base(libraryRepository)
         {
             _libraryRepository = libraryRepository;
-            _httpContextAccessor = httpContextAccessor;
         }
         
         public IQueryable<Library> GetAllLibraryItems()
@@ -30,7 +30,7 @@ namespace Xilion.Models.Media.Core
         {
             return
                 _libraryRepository.Query().SingleOrDefault(
-                    x => x.Title == title && x.CreatedBy == _httpContextAccessor.HttpContext.User.Identity.Name);
+                    x => x.Title == title && x.CreatedBy == HttpContext.Current.User.Identity.Name);
         }
 
         /*Pregled po tipu dokumenata*/

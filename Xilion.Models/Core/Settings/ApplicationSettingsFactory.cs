@@ -1,19 +1,20 @@
 ﻿using System.Web;
 using StructureMap;
 using Microsoft.AspNetCore.Http;
+using HttpContext = Xilion.Framework.Web.HttpContext;
 
 namespace Xilion.Models.Core.Settings
 {
     public class ApplicationSettingsFactory : IApplicationSettingsFactory
     {
         #region IApplicationSettingsFactory Members
-        private static IHttpContextAccessor _httpContextAccessor;
+
         private static Container _container;
         public T GetSettings<T>(SettingsScope scope) where T : ApplicationSettings
         {
             string owner = scope == SettingsScope.AllUsers
                                ? Settings.AllUsers
-                               : _httpContextAccessor.HttpContext.User.Identity.Name;
+                               : HttpContext.Current.User.Identity.Name;
 
             return _container
                 .With<string>(owner)

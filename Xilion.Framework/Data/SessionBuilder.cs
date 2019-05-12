@@ -7,12 +7,17 @@ using NHibernate.Cfg;
 using NHibernate.Envers.Configuration.Attributes;
 using NHibernate.Envers.Event;
 using NHibernate.Event;
-using NHibernate.Search.Event;
-using NHibernate.Search.Store;
 using Xilion.Framework.Configuration;
 using Xilion.Framework.Data.Search;
 using Xilion.Framework.Logging;
 using Xilon.Framework.Data.Search;
+using NHibernate.Caches.SysCache;
+using Microsoft.AspNetCore;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Xilion.Framework.Web;
+using ISession = NHibernate.ISession;
+using HttpContext = Xilion.Framework.Web.HttpContext;
 
 namespace Xilion.Framework.Data
 {
@@ -25,7 +30,7 @@ namespace Xilion.Framework.Data
         private static NHibernate.Cfg.Configuration _configuration;
         private static ISessionFactory _sessionFactory;
         private static ISession _currentSession;
-        private static Microsoft.AspNetCore.Http.IHttpContextAccessor _httpContextAccessor;
+ 
 
         #region ISessionBuilder Members
 
@@ -34,13 +39,12 @@ namespace Xilion.Framework.Data
         /// </summary>
         public void CloseSession()
         {
-            var httpContext = _httpContextAccessor.HttpContext;
 
-            if (httpContext.Session != null)
+            if (HttpContext.Current != null)
             {
                 _logger.Debug("Closing NHibernate session from the HttpContext.");
 
-                var session = httpContext.Items[SessionKey] as ISession;
+                var session = HttpContext.Current.Items[SessionKey] as ISession;
 
                 if (session != null)
                 {
@@ -49,7 +53,7 @@ namespace Xilion.Framework.Data
                         session.Close();
                         session.Dispose();
                     }
-                    httpContext.Items.Remove(SessionKey);
+                    HttpContext.Current.Items.Remove(SessionKey);
                 }
             }
 
@@ -68,6 +72,7 @@ namespace Xilion.Framework.Data
         /// Gets the new session object avoiding the one from HTTP context.
         /// </summary>
         /// <returns><c>NHibernate</c> session object.</returns>
+        [System.Obsolete]
         public ISession GetNewSession()
         {
             _logger.Debug("Getting new session object avoiding the one from HTTP");
@@ -80,20 +85,20 @@ namespace Xilion.Framework.Data
         /// Gets the session object from current HTTP context or static variable. Creates a new one if none exists.
         /// </summary>
         /// <returns><c>NHibernate</c> session object.</returns>
+        [System.Obsolete]
         public ISession GetSession()
         {
-            ISessionFactory factory = GetSessionFactory();
-            var httpContext = _httpContextAccessor.HttpContext;
-            if (httpContext.Session != null)
+            ISessionFactory factory =  GetSessionFactory();
+            if (HttpContext.Current != null)
             {
                 _logger.Debug("Getting session from HttpContext.");
 
-                var session = httpContext.Items[SessionKey] as ISession;
+                var session = HttpContext.Current.Items[SessionKey] as ISession;
                 if (session == null || !session.IsOpen)
                 {
-                    session = factory.OpenSession();
-                    httpContext.Items.Remove(SessionKey);
-                    httpContext.Items.Add(SessionKey, session);
+                    session =  factory.OpenSession();
+                    HttpContext.Current.Items.Remove(SessionKey);
+                    HttpContext.Current.Items.Add(SessionKey, session);
                 }
 
                 return session;
@@ -127,21 +132,8 @@ namespace Xilion.Framework.Data
                         .Database(MsSqlConfiguration.MsSql2008
                                       .ConnectionString(ConnectionStringProvider.GetConnectionString())
                                       .AdoNetBatchSize(100))
-                        .Cache(c =>
-                        {
-                            c.UseSecondLevelCache();
-                            c.ProviderClass(
-                                "NHibernate.Caches.SysCache.SysCacheProvider, NHibernate.Caches.SysCache");
-                            c.UseQueryCache();
-                        })
-                        .Mappings(m => AddAssemblies(m.FluentMappings))
-                        // TODO: There's a bug in current version of Fluent NHibernate
-                        // When using ExportTo, conventions aren't applied
-                        // https://groups.google.com/forum/#!topic/fluent-nhibernate/8lXr5jlgW-8
-                        //m.FluentMappings
-                        //.Conventions.AddFromAssemblyOf<TableNameConvention>()
-                        //.AddFromAssemblyOf<TableNameConvention>()
-                        //.ExportTo(@"c:\Temp")
+                        .Mappings(m => m.FluentMappings.AddFromAssembly(GetType().Assembly))
+                        // CACHE IS NOT IPMLEMETED
                         .ExposeConfiguration(x => x.SetProperty("hbm2ddl.auto", "update"))
                         .BuildConfiguration();
                 }

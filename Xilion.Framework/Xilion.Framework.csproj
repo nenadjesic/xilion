@@ -36,12 +36,13 @@
     </PackageReference>
     <PackageReference Include="FluentNHibernate" Version="2.1.2" />
     <PackageReference Include="Ionic.Zip" Version="1.9.1.8" />
+    <PackageReference Include="Lucene.Net.Core" Version="4.9.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="NHibernate" Version="5.2.5" />
+    <PackageReference Include="NHibernate.Caches.CoreDistributedCache.Memory" Version="5.5.1" />
     <PackageReference Include="NHibernate.Caches.SysCache" Version="5.5.1" />
     <PackageReference Include="NHibernate.Envers" Version="5.2.1" />
-    <PackageReference Include="NHibernate.Search" Version="2.0.2.4000" />
     <PackageReference Include="NLog" Version="4.6.2" />
   </ItemGroup>
 </Project>

@@ -6,6 +6,7 @@ using WebMatrix.WebData;
 using Xilion.Models.User.Data;
 using Microsoft.AspNetCore.Http;
 using Xilion.Models.Classifications;
+using HttpContext = Xilion.Framework.Web.HttpContext;
 
 namespace Xilion.Models.User.Core
 {
@@ -16,11 +17,10 @@ namespace Xilion.Models.User.Core
     {
         private static bool _initialized;
         private readonly IUserRepository _userRepository;
-        private static IHttpContextAccessor _httpContextAccessor;
-        public UserService(IUserRepository userRepository, IHttpContextAccessor httpContextAccessor) : base(userRepository)
+
+        public UserService(IUserRepository userRepository) : base(userRepository)
         {
             _userRepository = userRepository;
-            _httpContextAccessor = httpContextAccessor;
         }
 
 
@@ -35,7 +35,7 @@ namespace Xilion.Models.User.Core
         /// <returns> </returns>
         public Users Current()
         {
-            return _userRepository.Query().SingleOrDefault(x => x.UserName == _httpContextAccessor.HttpContext.User.Identity.Name);
+            return _userRepository.Query().SingleOrDefault(x => x.UserName == HttpContext.Current.User.Identity.Name);
         }
 
         /// <summary>
@@ -58,12 +58,5 @@ namespace Xilion.Models.User.Core
             Save(user);
             WebSecurity.CreateAccount(user.UserName, password);
         }
-
-        //[System.Obsolete]
-        //public IQueryable<Users> GetByLabel(Label label)
-        //{
-        //    return _userRepository.Query()
-        //        .Where(x => x.Labels.Contains(label));
-        //}
     }
 }

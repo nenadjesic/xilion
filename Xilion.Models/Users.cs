@@ -35,6 +35,7 @@ namespace Xilion.Models
 
         public virtual bool Deactived { get; set; }
 
+        [Audited(TargetAuditMode = RelationTargetAuditMode.NotAudited)]
         public virtual ImageItem Avatar { get; set; }
     }
 }

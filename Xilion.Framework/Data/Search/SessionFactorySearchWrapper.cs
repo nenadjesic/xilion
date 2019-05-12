@@ -33,18 +33,21 @@ namespace Xilon.Framework.Data.Search
             return WrapSession(session);
         }
 
+        [Obsolete]
         public ISession OpenSession(DbConnection conn)
         {
             ISession session = _sessionFactory.OpenSession(conn);
             return WrapSession(session);
         }
 
+        [Obsolete]
         public ISession OpenSession(IInterceptor sessionLocalInterceptor)
         {
             ISession session = _sessionFactory.OpenSession(sessionLocalInterceptor);
             return WrapSession(session);
         }
 
+        [Obsolete]
         public ISession OpenSession(DbConnection conn, IInterceptor sessionLocalInterceptor)
         {
             ISession session = _sessionFactory.OpenSession(conn, sessionLocalInterceptor);

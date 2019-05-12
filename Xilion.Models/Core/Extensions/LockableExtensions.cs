@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web;
 using Xilion.Models.Core.Domain;
+using HttpContext = Xilion.Framework.Web.HttpContext;
 
 namespace Xilion.Models.Core.Extensions
 {
@@ -9,7 +10,6 @@ namespace Xilion.Models.Core.Extensions
     /// </summary>
     public static class LockableExtensions
     {
-        private static Microsoft.AspNetCore.Http.IHttpContextAccessor _httpContextAccessor;
         /// <summary>
         /// Checks whether the given lockable is locked.
         /// </summary>
@@ -19,7 +19,7 @@ namespace Xilion.Models.Core.Extensions
         {
             return lockable.LockedOn != null &&
                    lockable.LockedOn > DateTime.Now.AddMinutes(-5) &&
-                   lockable.LockedBy != _httpContextAccessor.HttpContext.User.Identity.Name;
+                   lockable.LockedBy != HttpContext.Current.User.Identity.Name;
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace Xilion.Models.Core.Extensions
         {
             if (IsLocked(lockable)) return;
 
-            lockable.LockedBy = _httpContextAccessor.HttpContext.User.Identity.Name;
+            lockable.LockedBy = HttpContext.Current.User.Identity.Name;
             lockable.LockedOn = DateTime.Now;
         }
 

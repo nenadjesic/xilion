@@ -16,15 +16,13 @@ namespace Xilion.Models.Media.Core
     {
         private readonly IDocumentRepository _documentRepository;
         private readonly ILibraryRepository _libraryRepository;
-        private static IHttpContextAccessor _httpContextAccessor;
+
         private readonly IHostingEnvironment _hosting;
-        public DocumentService(IDocumentRepository documentRepository, ILibraryRepository libraryRepository ,
-            IHttpContextAccessor httpContextAccessor, IHostingEnvironment hosting)
+        public DocumentService(IDocumentRepository documentRepository, ILibraryRepository libraryRepository,IHostingEnvironment hosting)
             : base(documentRepository)
         {
             _documentRepository = documentRepository;
             _libraryRepository = libraryRepository;
-            _httpContextAccessor = httpContextAccessor;
             _hosting = hosting;
         }
 
