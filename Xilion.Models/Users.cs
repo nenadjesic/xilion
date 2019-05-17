@@ -10,13 +10,12 @@ using Xilion.Models.Media.Images;
 using Xilion.Models.Classifications;
 using Xilion.Models;
 using NHibernate.Envers.Configuration.Attributes;
-using NHibernate.Search.Attributes;
+
 
 namespace Xilion.Models
 {
     [Table("Users")]
     [Audited]
-    [Indexed]
     public class Users : TrackableEntity
     {
         public virtual  string UserName { get; set; }

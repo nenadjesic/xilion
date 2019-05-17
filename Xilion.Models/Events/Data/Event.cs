@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using NHibernate.Search.Attributes;
 using Xilion.Models.Classifications;
 using Xilion.Models.Core.Data;
 using Xilion.Models.Core;
@@ -12,7 +11,7 @@ namespace Xilion.Models.Events
     /// <summary>
     /// Represents Event object.
     /// </summary>
-    [Indexed]
+
     public class Event : MetaDataEntity, IHaveWorkflow, IAliased
     {
         private IList<EventTeam> _teams = new List<EventTeam>();
@@ -21,13 +20,12 @@ namespace Xilion.Models.Events
         /// <summary>
         /// Gets or sets event starting date and time.
         /// </summary>
-        [Field(Name = "startson")]
+
         public virtual DateTime StartsOn { get; set; }
 
         /// <summary>
         /// Gets or sets event ending date and time.
         /// </summary>
-        [Field(Name = "endson")]
         public virtual DateTime EndsOn { get; set; }
 
         /// <summary>
@@ -38,14 +36,12 @@ namespace Xilion.Models.Events
         /// <summary>
         /// Gets or sets event location.
         /// </summary>
-        [Field(Name = "location")]
         public virtual string Location { get; set; }
 
         /// <summary>
         /// Gets or sets event <see cref="IHaveEvent " /> parent.
         /// </summary>
-        [Field(Name = "parent")]
-        [FieldBridge(typeof (longFieldBridge))]
+
         public virtual IHaveEvent Parent { get; set; }
 
         /// <summary>

@@ -161,26 +161,6 @@ namespace Xilion.Models.Core.Services
             _repository.Save(entity);
         }
 
-        public virtual IEnumerable<T> Search(Query query)
-        {
-            // if TrackableQuery
-            var trackableQuery = query as TrackableQuery;
-            if(trackableQuery != null)
-            {
-                if (trackableQuery.Owner == "$")
-                    trackableQuery.CreatedBy = HttpContext.Current.User.Identity.Name;
-            }
-            // if WorkflowQuery
-            var workflowQuery = query as WorkflowQuery<T>;
-            if(workflowQuery != null)
-            {
-                if (workflowQuery.Scheduled) workflowQuery.PublishedOnFrom = DateTime.Now;
-            }
-
-
-
-            return _repository.Search(query);
-        }
 
         public virtual T Unlock(long id, bool save)
         {

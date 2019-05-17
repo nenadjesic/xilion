@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using NHibernate.Search.Attributes;
-using Xilion.Framework.Data.Search;
 using Xilion.Framework.Domain;
 using Xilion.Models.Classifications;
 
@@ -10,7 +8,7 @@ namespace Xilion.Models.Events
     /// <summary>
     ///   Represents a subscriber data.
     /// </summary>
-    [Indexed]
+
     public class EventTeam : TrackableEntity, ILabeled 
     {
         private IList<Xilion.Models.Classifications.Label> _labels = new List<Xilion.Models.Classifications.Label>();
@@ -20,8 +18,7 @@ namespace Xilion.Models.Events
         /// <summary>
         ///   Gets or sets the activity that the Users is subscribed to.
         /// </summary>
-        [Field(Name = "event", Index = Index.Tokenized)]
-        [FieldBridge(typeof (EntityIdFieldBridge))]
+
         public virtual Event Event { get; set; }
 
         /// <summary>
@@ -52,8 +49,7 @@ namespace Xilion.Models.Events
         /// <summary>
         ///   Gets or sets the subscriber status.
         /// </summary>
-        [Field(Name = "status")]
-        [FieldBridge(typeof (EnumerationFieldBridge))]
+
         public virtual EventSubscriptionStatus EventSubscriptionStatus { get; set; }
 
         /// <summary>

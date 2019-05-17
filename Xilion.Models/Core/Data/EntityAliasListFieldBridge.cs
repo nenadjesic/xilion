@@ -3,7 +3,7 @@ using System.Collections;
 using System.Globalization;
 using System.Linq;
 using Lucene.Net.Documents;
-using NHibernate.Search.Bridge;
+
 using Xilion.Models.Core.Domain;
 
 namespace Xilion.Models.Core.Data

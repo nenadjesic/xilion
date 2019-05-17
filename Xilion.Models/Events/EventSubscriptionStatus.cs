@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using NHibernate.Search.Attributes;
 using Xilion.Models.Classifications;
 using Xilion.Models.Core.Data;
 using Xilion.Models.Core;

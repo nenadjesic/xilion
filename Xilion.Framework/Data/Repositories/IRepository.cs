@@ -64,11 +64,5 @@ namespace Xilion.Framework.Data.Repositories
         /// <param name="entity">Entity to save.</param>
         void Save(T entity);
 
-        /// <summary>
-        /// Performs the search operation using the given query.
-        /// </summary>
-        /// <param name="query">Query to perform the search with.</param>
-        /// <returns>A list of all entities matching the given query.</returns>
-        IEnumerable<T> Search(Query query);
     }
 }

@@ -1,8 +1,6 @@
-﻿using NHibernate.Search.Attributes;
-
+﻿
 namespace Xilion.Models.Media.Video
 {
-    [Indexed]
     public class VideoItem : MediaItem
     {
         /// <summary>

@@ -1,5 +1,4 @@
-﻿using NHibernate.Search.Attributes;
-using Xilion.Models.Core.Data.Mappings;
+﻿using Xilion.Models.Core.Data.Mappings;
 using Xilion.Models.Core.Domain;
 using Xilion.Framework.Domain;
 using System.Collections.Generic; 
@@ -7,7 +6,7 @@ using System.Collections.Generic;
 namespace Xilion.Models.Media
 {
 
-    [Indexed]
+
     public class LibraryType : MetaDataEntity, IAliased
     {
 

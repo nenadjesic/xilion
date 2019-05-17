@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using NHibernate.Envers.Configuration.Attributes;
-using NHibernate.Search.Attributes;
 using Xilion.Models.Classifications;
-using Xilion.Framework.Data.Search;
+
 
 namespace Xilion.Models.Core.Domain
 {
@@ -16,8 +15,6 @@ namespace Xilion.Models.Core.Domain
         /// <summary>
         ///   Gets the list of labels (tags or categories) applied to this entity.
         /// </summary>
-        [Field(Name = "labels", Index = Index.Tokenized)]
-        [FieldBridge(typeof (EntityIdListFieldBridge))]
         [NotAudited]
         public virtual IList<Label> Labels
         {

@@ -1,9 +1,8 @@
-﻿using NHibernate.Search.Attributes;
-using Xilion.Models.Classifications;
+﻿using Xilion.Models.Classifications;
 
 namespace Xilion.Models.Media.Images
 {
-    [Indexed]
+
     public class ImageItem : MediaItem
     {
         /// <summary>
@@ -15,7 +14,6 @@ namespace Xilion.Models.Media.Images
         /// Gets or sets image height.
         /// </summary>
         public virtual int Height { get; set; }
-
 
     }
 }

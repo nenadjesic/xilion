@@ -30,28 +30,28 @@ namespace Xilon.Framework.Data.Search
         public ISession OpenSession()
         {
             ISession session = _sessionFactory.OpenSession();
-            return WrapSession(session);
+            return session;
         }
 
         [Obsolete]
         public ISession OpenSession(DbConnection conn)
         {
             ISession session = _sessionFactory.OpenSession(conn);
-            return WrapSession(session);
+            return session;
         }
 
         [Obsolete]
         public ISession OpenSession(IInterceptor sessionLocalInterceptor)
         {
             ISession session = _sessionFactory.OpenSession(sessionLocalInterceptor);
-            return WrapSession(session);
+            return session;
         }
 
         [Obsolete]
         public ISession OpenSession(DbConnection conn, IInterceptor sessionLocalInterceptor)
         {
             ISession session = _sessionFactory.OpenSession(conn, sessionLocalInterceptor);
-            return WrapSession(session);
+            return session;
         }
 
         public void Dispose()
@@ -166,10 +166,10 @@ namespace Xilon.Framework.Data.Search
 
         #endregion
 
-        private static ISession WrapSession(ISession session)
-        {
-            return NHibernate.Search.Search.CreateFullTextSession(session);
-        }
+        //private static ISession WrapSession(ISession session)
+        //{
+        //    return NHibernate.Search.Search.CreateFullTextSession(session);
+        //}
 
         public Task CloseAsync(CancellationToken cancellationToken = default(CancellationToken))
         {

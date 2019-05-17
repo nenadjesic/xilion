@@ -3,7 +3,6 @@ using System.Xml.Serialization;
 using NHibernate.Intercept;
 using NHibernate.Proxy;
 using NHibernate.Proxy.DynamicProxy;
-using NHibernate.Search.Attributes;
 using Xilion.Framework.Attributes;
 
 namespace Xilion.Framework.Domain

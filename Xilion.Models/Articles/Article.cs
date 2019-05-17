@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using NHibernate.Envers.Configuration.Attributes;
-using NHibernate.Search.Attributes;
 using Xilion.Models.Classifications;
 using Xilion.Models.Core.Domain;
 using Xilion.Models.Media;
 using Xilion.Models.Media.Images;
 using Xilion.Models.Karte;
-using Xilion.Framework.Data.Search;
+
 using Xilion.Models.Media.Documents;
 
 namespace Xilion.Models.Articles
@@ -17,7 +16,6 @@ namespace Xilion.Models.Articles
     ///   Represents Article object.
     /// </summary>
     [Audited]
-    [Indexed]
     public class Article : MetaDataEntity, ILockable, IHaveWorkflow, IAliased
     {
         private IList<Label> _labels = new List<Label>();
@@ -85,20 +83,19 @@ namespace Xilion.Models.Articles
         /// <summary>
         ///   Gets or sets date and time when article is published.
         /// </summary>
-        [Field(Name = "publishedon")]
+
         public virtual DateTime PublishedOn { get; set; }
 
         /// <summary>
         ///   Gets or sets date and time when article expires.
         /// </summary>
-        [Field(Name = "expireson")]
+
         public virtual DateTime? ExpiresOn { get; set; }
 
         /// <summary>
         ///   Gets or sets article status.
         /// </summary>
-        [Field(Name = "status")]
-        [FieldBridge(typeof (EnumerationFieldBridge))]
+
         public virtual WorkflowStatus Status { get; set; }
 
         #endregion
@@ -125,9 +122,7 @@ namespace Xilion.Models.Articles
       
         #region Implementation of ILabeled
 
-        //[Field(Name = "labels", Index = Index.Tokenized)]
-        //[FieldBridge(typeof(EntityIdListFieldBridge))]
-        [IndexedEmbedded(Depth = 1, Prefix = "label_")]
+
         [NotAudited]
         public virtual IList<Label> Labels
         {

@@ -1,16 +1,14 @@
 ﻿using System.Collections.Generic;
-using NHibernate.Search.Attributes;
 using Xilion.Models.Classifications;
 using NHibernate.Envers.Configuration.Attributes;
 using Xilion.Models.Core.Domain;
-using Xilion.Framework.Data.Search;
+
 
 namespace Xilion.Models.Media
 {
     /// <summary>
     /// Represents abstract media item.
     /// </summary>
-    [Indexed]
     public abstract class MediaItem : MetaDataEntity
     {
         private IList<Label> _labels = new List<Label>(); 
@@ -23,7 +21,6 @@ namespace Xilion.Models.Media
         /// <summary>
         /// Gets or sets item file name.
         /// </summary>
-        [Field(Name = "filename")]
         public virtual string FileName { get; set; }
 
         /// <summary>
@@ -37,14 +34,12 @@ namespace Xilion.Models.Media
         /// <summary>
         /// Gets or sets item file extension (without dot ('.') as prefix).
         /// </summary>
-        [Field(Name = "extension")]
         public virtual string Extension { get; set; }
 
         /// <summary>
         /// Gets or sets Library item belongs to.
         /// </summary>
-        [Field(Name = "library", Index = Index.Tokenized)]
-        [FieldBridge(typeof (EntityIdFieldBridge))]
+
         public virtual Library Library { get; set; }
 
 
@@ -53,7 +48,7 @@ namespace Xilion.Models.Media
         /// </summary>
         public virtual int Ordinal { get; set; }
 
-        [IndexedEmbedded(Depth = 1, Prefix = "label_")]
+
         [NotAudited]
         public virtual IList<Label> Labels
         {

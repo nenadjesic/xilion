@@ -6,7 +6,6 @@ using NHibernate;
 using NHibernate.Envers;
 using NHibernate.Envers.Exceptions;
 using NHibernate.Linq;
-using NHibernate.Search;
 using Xilion.Framework.Domain;
 using Xilion.Framework.Logging;
 using Query =Xilion.Framework.Queries.Query;
@@ -171,58 +170,6 @@ namespace Xilion.Framework.Data.Repositories
             }
         }
 
-        /// <summary>
-        /// Performs the search operation using the given query.
-        /// </summary>
-        /// <param name="query">Query to perform the search with.</param>
-        /// <returns>A list of all entities matching the given query.</returns>
-        public IEnumerable<T> Search(Query query)
-        {
-            Guard.IsNotNull(query, "query");
-
-            _logger.DebugFormat("Searching for entities of type: {0}.", typeof (T));
-
-            var session = GetSession() as IFullTextSession;
-
-            if (session == null)
-            {
-                _logger.Error("Full text search isn't enabled.");
-                throw new Exception("Full text search isn't enabled.");
-            }
-
-            string queryText = query.GetOrCreateQuery();
-            if (String.IsNullOrWhiteSpace(queryText))
-            {
-                if (query.IsEmpty())
-                    return new T[] {};
-
-                queryText = "createdon:2*";
-            }
-            else if (!queryText.Contains("createdon:") && query.HasNegateProperty())
-                queryText = "createdon:2* AND " + queryText;                                      /*POSLIJE 2* DODATI AND */
-
-            IFullTextQuery fullTextQuery = session.CreateFullTextQuery<T>(queryText);
-
-            if (query.Sorting != null && query.Sorting.OrderByProperty != null)
-            {
-                _logger.DebugFormat(
-                    "Sorting search results by {0} {1}.", query.Sorting.OrderByProperty, query.Sorting.SortOrder);
-                fullTextQuery.SetSort(GetLuceneSort(query.Sorting));
-            }
-            if (query.Paging != null)
-            {
-                IFullTextQuery pagingQuery = session.CreateFullTextQuery<T>(queryText);
-                query.Paging.TotalCount = pagingQuery.ResultSize;
-
-                _logger.DebugFormat(
-                    "Paging search results: page {0} of total items {1}.",
-                    query.Paging.PageNumber, query.Paging.TotalCount);
-                fullTextQuery.SetFirstResult(query.Paging.StartIndex).SetMaxResults(query.Paging.PageSize);
-            }
-
-            return fullTextQuery.List().Cast<T>();
-        }
-
         #endregion
 
         /// <summary>
@@ -259,16 +206,6 @@ namespace Xilion.Framework.Data.Repositories
         /// <param name="session">Current <c>NHibernate</c> session.</param>
         protected virtual void OnDeleted(object entityId, ISession session)
         {
-        }
-
-        /// <summary>
-        /// Creates a Lucene Sort object from a SortingInfo object.
-        /// </summary>
-        /// <param name="sorting">SortingInfo instance to convert to Lucene Sort object.</param>
-        /// <returns>An instance of Lucene Sort object.</returns>
-        protected virtual Sort GetLuceneSort(SortingInfo sorting)
-        {
-            return new Sort(new SortField(sorting.OrderByProperty.ToLowerInvariant(), 3, !sorting.IsAscending));
         }
     }
 }

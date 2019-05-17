@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using NHibernate.Envers.Configuration.Attributes;
-using NHibernate.Search.Attributes;
 using Xilion.Models.Core.Domain;
-using Xilion.Framework.Data.Search;
+
 
 namespace Xilion.Models.Site
 {
-    [Indexed]
+
     [Audited]
     public class Page : SiteEntity, IHierarchy, IAliased, IHaveWorkflow
     {
@@ -44,25 +43,21 @@ namespace Xilion.Models.Site
         [NotAudited]
         public virtual Page InternalRedirect { get; set; }
 
-        [Field(Name = "pagetype")]
-        [FieldBridge(typeof(EnumerationFieldBridge))]
         public virtual PageType PageType
         {
             get { return _pageType; }
             set { _pageType = value; }
         }
 
-        [Field(Name = "navigable")]
         public virtual bool Navigable
         {
             get { return _navigable; }
             set { _navigable = value; }
         }
 
-        [Field(Name = "requiressl")]
         public virtual bool RequireSSL { get; set; }
 
-        [Field(Name = "allowanonymous")]
+
         public virtual bool AllowAnonymous
         {
             get { return _allowAnonymous; }
@@ -112,7 +107,6 @@ namespace Xilion.Models.Site
         /// <summary>
         /// Gets or sets the date and time this entity is published.
         /// </summary>
-        [Field(Name = "publishedon")]
         public virtual DateTime PublishedOn
         {
             get { return _publishedOn; }
@@ -123,14 +117,12 @@ namespace Xilion.Models.Site
         /// Gets or sets the date and time this entity is expired, or will be expired. If it's null, entity will never 
         /// expire.
         /// </summary>
-        [Field(Name = "expireson")]
         public virtual DateTime? ExpiresOn { get; set; }
 
         /// <summary>
         /// Gets or sets the workflow status of this entity.
         /// </summary>
-        [Field(Name = "status")]
-        [FieldBridge(typeof(EnumerationFieldBridge))]
+
         public virtual WorkflowStatus Status
         {
             get { return _status; }

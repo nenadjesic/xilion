@@ -1,21 +1,16 @@
 ﻿using System.Collections.Generic;
 using NHibernate.Envers.Configuration.Attributes;
-using NHibernate.Search.Attributes;
 using Xilion.Models.Core.Domain;
 using Xilion.Models.Core.Data;
 
 namespace Xilion.Models.Classifications
 {
-    [Indexed]
+
     public class Label : AliasedEntity, IHierarchy
     {
         private IList<Label> _children = new List<Label>();
 
-        /// <summary>
-        ///   Gets or sets classification this item belongs to.
-        /// </summary>
-        [Field(Name = "classification")]
-        [FieldBridge(typeof (EntityAliasFieldBridge))]
+
         public virtual Classification Classification { get; set; }
 
         /// <summary>

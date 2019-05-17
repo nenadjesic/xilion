@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using NHibernate.Search.Attributes;
 using Xilion.Models.Core.Data;
 using Xilion.Models.Core.Domain;
 using Xilion.Framework.Domain;
@@ -32,7 +31,6 @@ namespace Xilion.Models.Filters
         /// <summary>
         /// Gets or sets the entity metadata - a collection of dynamic properties that can be localized.
         /// </summary>
-        [Field(Name = "metadata"), FieldBridge(typeof (MetaDataFieldBridge))]
         public virtual MetaData MetaData
         {
             get { return _metaData; }

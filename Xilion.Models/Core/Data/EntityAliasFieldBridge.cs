@@ -1,5 +1,5 @@
 ﻿using Lucene.Net.Documents;
-using NHibernate.Search.Bridge;
+
 using Xilion.Models.Core.Domain;
 
 namespace Xilion.Models.Core.Data

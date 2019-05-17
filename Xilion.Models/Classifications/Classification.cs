@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
-using NHibernate.Search.Attributes;
-using Xilion.Framework.Data.Search;
+
 using Xilion.Models.Core.Domain;
 
 namespace Xilion.Models.Classifications
 {
-    [Indexed]
     public class Classification : AliasedEntity
     {
         private IList<Label> _labels = new List<Label>();
@@ -13,8 +11,6 @@ namespace Xilion.Models.Classifications
         /// <summary>
         ///   Gets or sets <see cref="ClassificationType" /> of the classification.
         /// </summary>
-        [Field(Name = "classificationtype")]
-        [FieldBridge(typeof(EnumerationFieldBridge))]
         public virtual ClassificationType ClassificationType { get; set; }
 
         /// <summary>

@@ -1,14 +1,12 @@
 ﻿using NHibernate.Envers.Configuration.Attributes;
-using NHibernate.Search.Attributes;
 using Xilion;
-using Xilion.Framework.Data.Search;
 using Xilion.Framework.Domain;
 using System;
 using Xilion.Models.Core.Domain;
 using Xilion.Models.Core.Data;
 using Xilion.Models.Articles;
 using Xilion.Models.Core;
-using Xilion.Models.Articles;
+
 
 namespace Xilion.Models.Media
 {
@@ -49,15 +47,13 @@ namespace Xilion.Models.Media
         /// <summary>
         ///   Gets or sets tipovi dokuemenata.
         /// </summary>
-        [Field(Name = "librarytype")]
-        [FieldBridge(typeof(longFieldBridge))]
+
         public virtual LibraryType LibraryType { get; set; }
 
         /// <summary>
         /// Gets or sets the workflow status of this entity.
         /// </summary>
-        [Field(Name = "status")]
-        [FieldBridge(typeof(EnumerationFieldBridge))]
+
         public virtual WorkflowStatus Status
         {
             get { return _status; }
@@ -67,7 +63,7 @@ namespace Xilion.Models.Media
         /// <summary>
         ///   Gets or sets date and time when article is published.
         /// </summary>
-        [Field(Name = "ardatum")]
+
         public virtual DateTime ArDatum { get; set; }
     }
 }

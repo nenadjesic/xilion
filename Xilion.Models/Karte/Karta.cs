@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using NHibernate.Search.Attributes;
 using Xilion.Models.Classifications;
 using Xilion.Models.Media.Images;
 using Xilion.Models.Core.Data;
@@ -13,7 +12,6 @@ namespace Xilion.Models.Karte
     /// <summary>
     ///  Propertisi od Karte
     /// </summary>
-    [Indexed]
     public class Karta : MetaDataEntity
     {
         private IList<Label> _labels = new List<Label>();
@@ -54,9 +52,7 @@ namespace Xilion.Models.Karte
 
         #region Implementation of ILabeled
 
-        //[Field(Name = "labels", Index = Index.Tokenized)]
-        //[FieldBridge(typeof(EntityIdListFieldBridge))]
-        [IndexedEmbedded(Depth = 1, Prefix = "label_")]
+
         [NotAudited]
         public virtual IList<Label> Labels
         {

@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using NHibernate.Envers.Configuration.Attributes;
-using NHibernate.Search.Attributes;
 using Xilion.Models.Core.Domain;
 
 namespace Xilion.Models.Site
 {
-    [Indexed]
     public abstract class SiteEntity : MetaDataEntity
     {
         private IList<PageResource> _resources = new List<PageResource>();

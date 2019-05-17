@@ -11,6 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Core\Data\EntityAliasFieldBridge.cs" />
+    <Compile Remove="Core\Data\EntityAliasListFieldBridge.cs" />
+    <Compile Remove="Core\Data\GuidFieldBridge.cs" />
+    <Compile Remove="Core\Data\MetaDataFieldBridge.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="obj\Debug\netcoreapp2.2\Xilion.Models.AssemblyInfo.cs" />
   </ItemGroup>
 

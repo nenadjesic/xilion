@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using NHibernate.Search.Attributes;
+
 using Xilion.Models.Classifications;
 using Xilion.Models.Media.Images;
 using Xilion.Models.Core.Data;
@@ -10,7 +10,6 @@ using Xilion.Framework.Domain;
 namespace Xilion.Models.Newsletters
 {
   
-    [Indexed]
     public class Newsletter : Entity, IHaveWorkflow 
 
     {
@@ -29,7 +28,7 @@ namespace Xilion.Models.Newsletters
         /// <summary>
         ///   Get puno ime i prezime
         /// </summary>
-        [Field(Name = "imeprezime", Store = Store.Yes)]
+
         public virtual string ImePrezime
         {
             get { return String.Format("{0} {1}", Ime, Prezime); }

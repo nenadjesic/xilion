@@ -8,9 +8,7 @@ using NHibernate.Envers.Configuration.Attributes;
 using NHibernate.Envers.Event;
 using NHibernate.Event;
 using Xilion.Framework.Configuration;
-using Xilion.Framework.Data.Search;
 using Xilion.Framework.Logging;
-using Xilon.Framework.Data.Search;
 using NHibernate.Caches.SysCache;
 using Microsoft.AspNetCore;
 using System.Threading.Tasks;
@@ -18,6 +16,7 @@ using Microsoft.AspNetCore.Http;
 using Xilion.Framework.Web;
 using ISession = NHibernate.ISession;
 using HttpContext = Xilion.Framework.Web.HttpContext;
+using Xilon.Framework.Data.Search;
 
 namespace Xilion.Framework.Data
 {

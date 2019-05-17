@@ -1,5 +1,4 @@
-﻿using NHibernate.Search.Attributes;
-
+﻿
 namespace Xilion.Models.Core.Domain
 {
     /// <summary>
@@ -9,12 +8,7 @@ namespace Xilion.Models.Core.Domain
     {
         #region IAliased Members
 
-        /// <summary>
-        /// Gets or sets the alias. Alias is a Users-friendly id of the entity, used when generating URLs.
-        /// </summary>
-        [Field(Name = "alias", Index = Index.UnTokenized, Store = Store.Yes)]
         public virtual string Alias { get; set; }
-
         #endregion
     }
 }

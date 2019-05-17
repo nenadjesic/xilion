@@ -1,5 +1,4 @@
 using System;
-using NHibernate.Search.Attributes;
 
 namespace Xilion.Framework.Domain
 {

@@ -14,23 +14,23 @@ namespace Xilion.Models.Core.Data.Repositories.Default
         {
         }
 
-        protected override Sort GetLuceneSort(SortingInfo sorting)
-        {
-            string propertyName = sorting.OrderByProperty;
+        //protected override Sort GetLuceneSort(SortingInfo sorting)
+        //{
+        //    string propertyName = sorting.OrderByProperty;
 
-            MetaDataPropertyDefinition metaDataProperty =
-                CmsContext.Current.GetMetaDataFor<Entity>().SingleOrDefault(x => x.Name == propertyName);
-            if (metaDataProperty == null)
-                return base.GetLuceneSort(sorting);
+        //    MetaDataPropertyDefinition metaDataProperty =
+        //        CmsContext.Current.GetMetaDataFor<Entity>().SingleOrDefault(x => x.Name == propertyName);
+        //    if (metaDataProperty == null)
+        //        return base.GetLuceneSort(sorting);
 
-            if (metaDataProperty.IsLocalized)
-                propertyName = metaDataProperty.GetFullName();
+        //    if (metaDataProperty.IsLocalized)
+        //        propertyName = metaDataProperty.GetFullName();
 
-            // If property is both analyzed and stored, we search in stored field
-            if (metaDataProperty.IsAnalyzed && metaDataProperty.IsStored)
-                propertyName += MetaDataPropertyDefinition.StoredSuffix;
+        //    // If property is both analyzed and stored, we search in stored field
+        //    if (metaDataProperty.IsAnalyzed && metaDataProperty.IsStored)
+        //        propertyName += MetaDataPropertyDefinition.StoredSuffix;
 
-            return new Sort(new SortField(propertyName.ToLowerInvariant(), 3, !sorting.IsAscending));
-        }
+        //    return new Sort(new SortField(propertyName.ToLowerInvariant(), 3, !sorting.IsAscending));
+        //}
     }
 }
