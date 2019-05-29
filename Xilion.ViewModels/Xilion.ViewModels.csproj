@@ -9,15 +9,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="bin\Debug\netcoreapp2.2\Xilion.ViewModels.deps.json" />
     <Content Include="obj\Debug\netcoreapp2.2\Xilion.ViewModels.csproj.FileListAbsolute.txt" />
     <Content Include="obj\project.assets.json" />
     <Content Include="obj\Xilion.ViewModels.csproj.nuget.dgspec.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="bin\Debug\netcoreapp2.2\Xilion.ViewModels.dll" />
-    <None Include="bin\Debug\netcoreapp2.2\Xilion.ViewModels.pdb" />
     <None Include="obj\Debug\netcoreapp2.2\Xilion.ViewModels.AssemblyInfoInputs.cache" />
     <None Include="obj\Debug\netcoreapp2.2\Xilion.ViewModels.assets.cache" />
     <None Include="obj\Debug\netcoreapp2.2\Xilion.ViewModels.csproj.CoreCompileInputs.cache" />
@@ -31,6 +28,10 @@
 
   <ItemGroup>
     <PackageReference Include="HibernatingRhinos.Profiler.Appender" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\" />
   </ItemGroup>
 
 </Project>

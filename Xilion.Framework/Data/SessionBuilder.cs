@@ -128,13 +128,19 @@ namespace Xilion.Framework.Data
                 lock (this)
                 {
                     _configuration = Fluently.Configure()
-                        .Database(MsSqlConfiguration.MsSql2008
-                                      .ConnectionString(ConnectionStringProvider.GetConnectionString())
-                                      .AdoNetBatchSize(100))
-                        .Mappings(m => m.FluentMappings.AddFromAssembly(GetType().Assembly))
-                        // CACHE IS NOT IPMLEMETED
-                        .ExposeConfiguration(x => x.SetProperty("hbm2ddl.auto", "update"))
-                        .BuildConfiguration();
+                         .Database(MsSqlConfiguration.MsSql2008
+                                       .ConnectionString(ConnectionStringProvider.GetConnectionString())
+                                       .AdoNetBatchSize(100))
+                         .Cache(c =>
+                         {
+                             c.UseSecondLevelCache();
+                             c.ProviderClass(
+                                "NHibernate.Caches.SysCache.SysCacheProvider, NHibernate.Caches.SysCache");
+                             c.UseQueryCache();
+                         })
+                         .Mappings(m => AddAssemblies(m.FluentMappings))
+                         .ExposeConfiguration(x => x.SetProperty("hbm2ddl.auto", "update"))
+                         .BuildConfiguration();
                 }
             }
             return _configuration;
@@ -150,7 +156,6 @@ namespace Xilion.Framework.Data
                     FluentConfiguration configuration = Fluently.Configure(GetConfiguration());
                     configuration.ProxyFactoryFactory<DefaultProxyFactoryFactory>();
                     configuration
-                        .ExposeConfiguration(InitializeSearch)
                         .ExposeConfiguration(InitializeEnvers)
                         .ExposeConfiguration(InitializeTrackableListener);
 

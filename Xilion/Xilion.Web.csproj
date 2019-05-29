@@ -31,21 +31,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="obj\Debug\netcoreapp2.2\Xilion.Web.AssemblyInfo.cs" />
-    <Compile Include="obj\Debug\netcoreapp2.2\Xilion.Web.RazorAssemblyInfo.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <Content Include="bin\Debug\netcoreapp2.2\hibernate.cfg.xml" />
     <Content Include="obj\project.assets.json" />
     <Content Include="obj\Xilion.Web.csproj.nuget.dgspec.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="obj\Debug\netcoreapp2.2\Xilion.Web.AssemblyInfoInputs.cache" />
-    <None Include="obj\Debug\netcoreapp2.2\Xilion.Web.assets.cache" />
-    <None Include="obj\Debug\netcoreapp2.2\Xilion.Web.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Debug\netcoreapp2.2\Xilion.Web.csprojAssemblyReference.cache" />
-    <None Include="obj\Debug\netcoreapp2.2\Xilion.Web.RazorAssemblyInfo.cache" />
     <None Include="obj\Xilion.Web.csproj.nuget.g.props" />
     <None Include="obj\Xilion.Web.csproj.nuget.g.targets" />
   </ItemGroup>
@@ -56,10 +47,6 @@
     <ProjectReference Include="..\Xilion.Interface\Xilion.Interface.csproj" />
     <ProjectReference Include="..\Xilion.Models\Xilion.Models.csproj" />
     <ProjectReference Include="..\Xilion.ViewModels\Xilion.ViewModels.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="bin\Debug\netcoreapp2.2\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
