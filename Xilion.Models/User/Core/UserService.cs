@@ -7,7 +7,6 @@ using Xilion.Models.User.Data;
 using Microsoft.AspNetCore.Http;
 using Xilion.Models.Classifications;
 using HttpContext = Xilion.Framework.Web.HttpContext;
-using Xilion.Framework.Data.Repositories;
 
 namespace Xilion.Models.User.Core
 {
@@ -39,11 +38,6 @@ namespace Xilion.Models.User.Core
             return _userRepository.Query().SingleOrDefault(x => x.UserName == HttpContext.Current.User.Identity.Name);
         }
 
-        public void Delete(object entityId)
-        {
-            throw new System.NotImplementedException();
-        }
-
         /// <summary>
         ///   Gets user by account username.
         /// </summary>
@@ -52,21 +46,6 @@ namespace Xilion.Models.User.Core
         public Users GetAuth(string username, string password)
         {
             return _userRepository.Query().SingleOrDefault(x => x.UserName == username && x.Password == password);
-        }
-
-        public Users GetPreviousRevision(long id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Users GetRevision(long id, long revisionNumber)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IQueryable<Users> Query()
-        {
-            throw new System.NotImplementedException();
         }
 
         /// <summary>
@@ -78,11 +57,6 @@ namespace Xilion.Models.User.Core
         {
             Save(user);
             WebSecurity.CreateAccount(user.UserName, password);
-        }
-
-        IQueryable<Users> IRepository<Users>.GetAll()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

@@ -113,6 +113,7 @@ namespace Xilion.Framework.Data
         /// Gets the stateless session useful for batch inserts or updates.
         /// </summary>
         /// <returns><see cref="NHibernate"/> stateless session object.</returns>
+        [System.Obsolete]
         public IStatelessSession GetStatelessSession()
         {
             ISessionFactory factory = GetSessionFactory();

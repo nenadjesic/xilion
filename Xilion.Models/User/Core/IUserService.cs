@@ -2,7 +2,7 @@
 
 namespace Xilion.Models.User.Core
 {
-    public interface IUserService : IUserRepository
+    public interface IUserService 
     {
         UserSettings Settings { get; }
 

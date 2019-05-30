@@ -37,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="bin\Debug\netcoreapp2.2\HibernatingRhinos.Profiler.Appender.dll" />
     <None Include="obj\Xilion.Web.csproj.nuget.g.props" />
     <None Include="obj\Xilion.Web.csproj.nuget.g.targets" />
   </ItemGroup>

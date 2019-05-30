@@ -33,8 +33,9 @@ namespace Xilion
 
         public IConfiguration Configuration { get; }
 
-    // This method gets called by the runtime. Use this method to add services to the container.
-    public void ConfigureServices(IServiceCollection services)
+        // This method gets called by the runtime. Use this method to add services to the container.
+        [System.Obsolete]
+        public void ConfigureServices(IServiceCollection services)
         {
 
             #region MyRegion
@@ -86,6 +87,9 @@ namespace Xilion
             });
 
             #endregion
+            
+            services.AddSingleton<SessionBuilder>();
+            services.AddScoped(x => x.GetService<SessionBuilder>().GetNewSession());
 
             services.AddMvc(options => { options.Filters.Add(typeof(CustomExceptionFilterAttribute)); })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
@@ -153,6 +157,7 @@ namespace Xilion
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+            HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
             //CreateDatabase();
         }
 
