@@ -16,8 +16,8 @@ namespace Xilion.Concrete
     {
 
         private readonly DatabaseContext _context;
-        private readonly IUserRepository _userService;
-        public UsersConcrete(DatabaseContext context, IUserRepository userService)
+        private readonly UserService _userService;
+        public UsersConcrete(DatabaseContext context, UserService userService)
         {
             _context = context;
             _userService = userService;
@@ -34,13 +34,9 @@ namespace Xilion.Concrete
 
         public bool AuthenticateUsers(string username, string password)
         {
-            var result = (from user in _userService.GetAll()
-                          where user.UserName == username && user.Password == password
-                          select user).Count();
+            var user = _userService.GetAuth(username, password);
 
-
-
-            return result > 0 ? true : false;
+            return user != null ? true : false;
 
 
         }

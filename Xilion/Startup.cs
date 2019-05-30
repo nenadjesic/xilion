@@ -20,6 +20,7 @@ using Xilion.Framework.Data;
 using Xilion.Models.User.Data;
 using Xilion.Models.User.Data.Default;
 using Xilion.Framework.Web;
+using Xilion.Models.User.Core;
 
 namespace Xilion
 {
@@ -95,7 +96,8 @@ namespace Xilion
             services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHttpContextAccessorS();
             services.AddTransient<ISessionBuilder, SessionBuilder>();
-            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",

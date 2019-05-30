@@ -131,13 +131,7 @@ namespace Xilion.Framework.Data
                          .Database(MsSqlConfiguration.MsSql2008
                                        .ConnectionString(ConnectionStringProvider.GetConnectionString())
                                        .AdoNetBatchSize(100))
-                         .Cache(c =>
-                         {
-                             c.UseSecondLevelCache();
-                             c.ProviderClass(
-                                "NHibernate.Caches.SysCache.SysCacheProvider, NHibernate.Caches.SysCache");
-                             c.UseQueryCache();
-                         })
+                        .Cache(c => c.UseQueryCache().ProviderClass(typeof(NHibernate.Caches.RtMemoryCache.RtMemoryCacheProvider).AssemblyQualifiedName))
                          .Mappings(m => AddAssemblies(m.FluentMappings))
                          .ExposeConfiguration(x => x.SetProperty("hbm2ddl.auto", "update"))
                          .BuildConfiguration();
