@@ -16,8 +16,8 @@ namespace Xilion.Concrete
     {
 
         private readonly DatabaseContext _context;
-        private readonly UserService _userService;
-        public UsersConcrete(DatabaseContext context, UserService userService)
+        private readonly IUserService _userService;
+        public UsersConcrete(DatabaseContext context, IUserService userService)
         {
             _context = context;
             _userService = userService;

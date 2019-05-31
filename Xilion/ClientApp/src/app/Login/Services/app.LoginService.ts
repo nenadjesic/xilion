@@ -15,7 +15,7 @@ export class LoginService {
     {
 
     }
-    private apiUrl = "	http://localhost:49505/api/Authenticate/";
+    private apiUrl = "http://localhost:49505/api/Authenticate";
 
     public validateLoginUser(loginmodel: LoginModel)
     {
@@ -29,11 +29,11 @@ export class LoginService {
                 {
                     if (data.Usertype == "2") {
                         // store username and jwt token in local storage to keep user logged in between page refreshes
-                        localStorage.setItem('currentUser', JSON.stringify({ username: loginmodel.Username, token: data.Token }));
+                        localStorage.setItem('currentUser', JSON.stringify({ username: loginmodel.username, token: data.Token }));
                     }
                     else if (data.Usertype == "1") {
                         // store username and jwt token in local storage to keep user logged in between page refreshes
-                        localStorage.setItem('AdminUser', JSON.stringify({ username: loginmodel.Username, token: data.Token }));
+                        localStorage.setItem('AdminUser', JSON.stringify({ username: loginmodel.username, token: data.Token }));
                     }
                     // return true to indicate successful login
                     return data;

@@ -88,20 +88,23 @@ namespace Xilion
 
             #endregion
             
-            services.AddSingleton<SessionBuilder>();
-            services.AddScoped(x => x.GetService<SessionBuilder>().GetNewSession());
+            services.AddSingleton<ISessionBuilder, SessionBuilder>();
+            services.AddScoped(x => x.GetService<ISessionBuilder>().GetNewSession());
 
             services.AddMvc(options => { options.Filters.Add(typeof(CustomExceptionFilterAttribute)); })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddJsonOptions(options =>
                 {
-                    options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
+                    options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
                 });
             services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHttpContextAccessorS();
-            services.AddTransient<ISessionBuilder, SessionBuilder>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+
+            services.AddScoped<UserRepository, UserRepository>();
+            services.AddScoped<UserService, UserService>();
+
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -157,7 +160,7 @@ namespace Xilion
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
-            HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
+            //HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
             //CreateDatabase();
         }
 

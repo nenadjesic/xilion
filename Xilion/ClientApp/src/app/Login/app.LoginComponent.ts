@@ -35,11 +35,11 @@ export class LoginComponent implements OnInit
         this._loginservice = loginservice;
     }
 
-    LoginModel: LoginModel = new LoginModel();
+    loginModel: LoginModel = new LoginModel();
 
     onSubmit() 
     {
-        this._loginservice.validateLoginUser(this.LoginModel).subscribe(
+        this._loginservice.validateLoginUser(this.loginModel).subscribe(
             response => 
             {     
                 if (response.Token == null && response.Usertype == "0") 
