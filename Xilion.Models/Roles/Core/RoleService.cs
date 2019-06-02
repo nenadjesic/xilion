@@ -13,7 +13,7 @@ namespace Xilion.Models.Roles.Core
     /// <summary>
     ///   Represent service working with <see cref="Role" />
     /// </summary>
-    public class RoleService : CmsService<Role>
+    public class RoleService : CmsService<Role>, IRoleService
     {
         private static bool _initialized;
         private readonly IRoleRepository _roleRepository;
@@ -32,26 +32,75 @@ namespace Xilion.Models.Roles.Core
 
 
         /// <summary>
-        ///   Gets Role by account Rolename.
+        ///   Gets Roles
         /// </summary>
         /// <param name="RoleName"> </param>
         /// <returns> </returns>
-        public List<Role> Get()
-        {   
+        public List<Role> GetRoles()
+        {
             return _roleRepository.GetAll().ToList();
+        }
+
+        /// <summary>
+        ///   Gets Role by Id
+        /// </summary>
+        /// <returns> </returns>
+        public Role GetById(int roleId)
+        {
+            return _roleRepository.GetById(roleId);
+        }
+
+        /// <summary>
+        ///   Gets Role by Id
+        /// </summary>
+        /// <returns> </returns>
+        public bool DeleteRole(Role entity)
+        {
+            if (entity.IsPersistent)
+            {
+                return false;
+            }
+            else
+            {
+                base.Delete(entity);
+                return true;
+            }
         }
 
 
         public void Save(Role Role, string email, string password)
         {
             Save(Role);
-            WebSecurity.CreateAccount(Role.RoleName, password);
         }
 
         public IQueryable<Role> GetByLabel()
         {
             return _roleRepository.Query()
                 .Where(x => x.RoleName.Contains("Adminstaror"));
+        }
+
+        public IQueryable<Role> CheckRoleExits(string roleName)
+        {
+            return _roleRepository.Query().Where(x => x.RoleName.Contains(roleName));
+        }
+
+
+        /// <summary>
+        ///   Gets usersRole
+        /// </summary>
+        /// <returns> </returns>
+        public IQueryable<UsersInRoles> GetUsersRole()
+        {
+            return _uirRepository.GetAll();
+        }
+
+        /// <summary>
+        ///   Gets usersRole
+        /// </summary>
+        /// <returns> </returns>
+        public List<UsersInRoles> GetUsersInRole()
+        {
+            return _uirRepository.GetAll().ToList();
         }
     }
 }

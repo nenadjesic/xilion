@@ -4,6 +4,7 @@ import { catchError, tap } from 'rxjs/operators'
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { LoginModel } from '../Models/app.LoginModel';
 import { Router } from '@angular/router';
+import { environment } from 'src/app/Shared/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -14,8 +15,9 @@ export class LoginService {
     constructor(private _http: HttpClient, private _Route: Router) 
     {
 
-    }
-    private apiUrl = "http://localhost:49505/api/Authenticate";
+  }
+
+  private apiUrl = environment.apiEndpoint + "/api/Authenticate/";
 
     public validateLoginUser(loginmodel: LoginModel)
     {
@@ -25,13 +27,13 @@ export class LoginService {
             {
                 console.log(data);
               
-                if (data.Token != null) 
+                if (data.token != null) 
                 {
-                    if (data.Usertype == "2") {
+                    if (data.usertype == 2) {
                         // store username and jwt token in local storage to keep user logged in between page refreshes
                         localStorage.setItem('currentUser', JSON.stringify({ username: loginmodel.username, token: data.Token }));
                     }
-                    else if (data.Usertype == "1") {
+                    else if (data.usertype == 1) {
                         // store username and jwt token in local storage to keep user logged in between page refreshes
                         localStorage.setItem('AdminUser', JSON.stringify({ username: loginmodel.username, token: data.Token }));
                     }

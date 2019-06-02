@@ -21,6 +21,9 @@ using Xilion.Models.User.Data;
 using Xilion.Models.User.Data.Default;
 using Xilion.Framework.Web;
 using Xilion.Models.User.Core;
+using Xilion.Models.Roles.Data;
+using Xilion.Models.Roles.Core;
+using Xilion.Models.Roles.Data.Default;
 
 namespace Xilion
 {
@@ -71,7 +74,7 @@ namespace Xilion
             services.AddTransient<ISchemeMaster, SchemeMasterConcrete>();
             services.AddTransient<IPlanMaster, PlanMasterConcrete>();
             services.AddTransient<IPeriodMaster, PeriodMasterConcrete>();
-            services.AddTransient<IRole, RoleConcrete>();
+            services.AddTransient<IRoleService, RoleConcrete>();
             services.AddTransient<IMemberRegistration, MemberRegistrationConcrete>();
             services.AddTransient<IUsers, UsersConcrete>();
             services.AddTransient<IUsersInRoles, UsersInRolesConcrete>();
@@ -99,11 +102,16 @@ namespace Xilion
                 });
             services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHttpContextAccessorS();
+            //AUTH ROLE AND USERS
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
-
             services.AddScoped<UserRepository, UserRepository>();
             services.AddScoped<UserService, UserService>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<RoleRepository, RoleRepository>();
+            services.AddScoped<RoleService, RoleService>();
+            services.AddScoped<IUsersInRolesRepository, UsersInRolesRepository>();
 
             services.AddCors(options =>
             {

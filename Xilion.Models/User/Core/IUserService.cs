@@ -1,4 +1,6 @@
-﻿using Xilion.Models.User.Data;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Xilion.Models.User.Data;
 
 namespace Xilion.Models.User.Core
 {
@@ -7,7 +9,17 @@ namespace Xilion.Models.User.Core
         UserSettings Settings { get; }
 
         Users Current();
+
         Users GetAuth(string username, string password);
-        void Save(Users user, string email, string password);
+
+        Users GetCurrent(string username);
+
+        Users GetById(int Id);
+
+        void Save(Users user);
+
+        List<Users> GetAll();
+
+        void Delete(Users entity);
     }
 }

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Xilion.Interface;
 using Xilion.Models;
+using Xilion.Models.Roles.Core;
 using Xilion.ViewModels;
 
 namespace Xilion.Controllers
@@ -18,11 +19,11 @@ namespace Xilion.Controllers
     [ApiController]
     public class CreateRoleController : ControllerBase
     {
-        private readonly IRole _role;
+        private readonly IRoleService _roleServices;
 
-        public CreateRoleController(IRole role)
+        public CreateRoleController(IRoleService roleServices)
         {
-            _role = role;
+            _roleServices = roleServices;
         }
 
         // GET: api/CreateRole
@@ -31,7 +32,7 @@ namespace Xilion.Controllers
         {
             try
             {
-                return _role.GetAllRole();
+                return _roleServices.GetRoles();
             }
             catch (Exception)
             {
@@ -46,7 +47,7 @@ namespace Xilion.Controllers
         {
             try
             {
-                return _role.GetRolebyId(id);
+                return _roleServices.GetById(id);
             }
             catch (Exception)
             {
@@ -64,7 +65,7 @@ namespace Xilion.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    if (_role.CheckRoleExits(roleViewModel.RoleName))
+                    if (_roleServices.CheckRoleExits(roleViewModel.RoleName) != null)
                     {
                         var response = new HttpResponseMessage()
                         {
@@ -77,7 +78,7 @@ namespace Xilion.Controllers
                     {
                         var temprole = AutoMapper.Mapper.Map<Role>(roleViewModel);
 
-                        _role.InsertRole(temprole);
+                        _roleServices.Save(temprole);
 
                         var response = new HttpResponseMessage()
                         {
@@ -112,7 +113,7 @@ namespace Xilion.Controllers
             try
             {
                 var temprole = AutoMapper.Mapper.Map<Role>(roleViewModel);
-                _role.UpdateRole(temprole);
+                _roleServices.Save(temprole);
 
                 var response = new HttpResponseMessage()
                 {
@@ -136,12 +137,12 @@ namespace Xilion.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public HttpResponseMessage Delete(int id)
+        public HttpResponseMessage Delete(Role role)
         {
             try
             {
 
-                var result = _role.DeleteRole(id);
+                var result = _roleServices.DeleteRole(role);
 
                 if (result)
                 {

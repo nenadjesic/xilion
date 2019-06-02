@@ -9,27 +9,26 @@ using Xilion.Framework;
 using Xilion.Models.User.Core;
 using Xilion.ViewModels;
 using Xilion.Models.User.Data;
+using Xilion.Models.Roles.Core;
 
 namespace Xilion.Concrete
 {
     public class UsersConcrete : IUsers
     {
 
-        private readonly DatabaseContext _context;
         private readonly IUserService _userService;
-        public UsersConcrete(DatabaseContext context, IUserService userService)
+        private readonly IRoleService _roleService;
+        public UsersConcrete(IUserService userService, IRoleService roleService)
         {
-            _context = context;
             _userService = userService;
+            _roleService = roleService;
         }
 
         public bool CheckUsersExits(string username)
         {
-            var result = (from user in _context.Users
-                          where user.UserName == username
-                          select user).Count();
+            var result = _userService.GetCurrent(username);
 
-            return result > 0 ? true : false;
+            return result != null ? true : false;
         }
 
         public bool AuthenticateUsers(string username, string password)
@@ -37,16 +36,14 @@ namespace Xilion.Concrete
             var user = _userService.GetAuth(username, password);
 
             return user != null ? true : false;
-
-
         }
 
         public LoginResponse GetUserDetailsbyCredentials(string username, string password)
         {
             try
             {
-                var result = (from user in _context.Users
-                    join userinrole in _context.UsersInRoles on user.Id equals userinrole.UserId
+                var result = (from user in _userService.GetAll()
+                              join userinrole in _roleService.GetUsersInRole() on user.Id equals userinrole.UserId
                               where user.UserName == username && user.Password == password
 
                               select new LoginResponse
@@ -67,79 +64,40 @@ namespace Xilion.Concrete
         }
 
 
-        public bool DeleteUsers(int userId)
+        public bool DeleteUsers(Users user)
         {
-            var removeuser = (from user in _context.Users
-                              where user.Id == userId
-                              select user).FirstOrDefault();
-            if (removeuser != null)
-            {
-                _context.Users.Remove(removeuser);
-                var result = _context.SaveChanges();
-
-                if (result > 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
+            _userService.Delete(user);
+            return true;            
         }
 
         public List<Users> GetAllUsers()
         {
-            var result = (from user in _context.Users
-                          where user.Status == true
-                          select user).ToList();
+            var result = _userService.GetAll(); ;
 
             return result;
         }
 
         public Users GetUsersbyId(int userId)
         {
-            var result = (from user in _context.Users
-                          where user.Id == userId
-                          select user).FirstOrDefault();
-
+            var result = _userService.GetById(userId);
             return result;
         }
 
         public bool InsertUsers(Users user)
         {
-            _context.Users.Add(user);
-            var result = _context.SaveChanges();
-            if (result > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            _userService.Save(user);
+            return true;
         }
 
         public bool UpdateUsers(Users user)
         {
-            _context.Entry(user).Property(x => x.Email).IsModified = true;
-            _context.Entry(user).Property(x => x.Status).IsModified = true;
-            _context.Entry(user).Property(x => x.FullName).IsModified = true;
-            _context.Entry(user).Property(x => x.Password).IsModified = true;
+            _userService.Save(user);
+            return true;
+        }
 
-            var result = _context.SaveChanges();
-            if (result > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+        public bool DeleteUsers(int Usersid)
+        {
+            throw new NotImplementedException();
         }
     }
 }

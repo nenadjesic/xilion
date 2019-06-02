@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit
         this._loginservice.validateLoginUser(this.loginModel).subscribe(
             response => 
             {     
-                if (response.Token == null && response.Usertype == "0") 
+                if (response.token == null && response.usertype == 0) 
                 {
                     let config = new MatSnackBarConfig();
                     config.duration = this.setAutoHide ? this.autoHide : 0;
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit
                     this._Route.navigate(['Login']);
                 }
 
-                if (response.Usertype == "1") 
+                if (response.usertype == 1) 
                 {
                     let config = new MatSnackBarConfig();
                     config.duration = this.setAutoHide ? this.autoHide : 0;
@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit
                     this._Route.navigate(['/Admin/Dashboard']);
                 }
 
-                if (response.Usertype == "2") 
+                if (response.usertype == 2) 
                 {
                     let config = new MatSnackBarConfig();
                     config.duration = this.setAutoHide ? this.autoHide : 0;
