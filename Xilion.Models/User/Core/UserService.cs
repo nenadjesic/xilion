@@ -30,30 +30,16 @@ namespace Xilion.Models.User.Core
             get { return (UserSettings)CmsContext.Current.GetApplication<UserApplication>().GetSettings(); }
         }
 
-        /// <summary>
-        ///   Gets current loged user.
-        /// </summary>
-        /// <returns> </returns>
         public Users Current()
         {
             return _userRepository.Query().SingleOrDefault(x => x.UserName == HttpContext.Current.User.Identity.Name);
         }
 
-        /// <summary>
-        ///   Gets user by account username.
-        /// </summary>
-        /// <param name="username"> </param>
-        /// <returns> </returns>
         public Users GetAuth(string username, string password)
         {
             return _userRepository.Query().SingleOrDefault(x => x.UserName == username && x.Password == password);
         }
 
-        /// <summary>
-        ///   Gets user by account username.
-        /// </summary>
-        /// <param name="username"> </param>
-        /// <returns> </returns>
         public Users GetCurrent(string username)
         {
             return _userRepository.Query().SingleOrDefault(x => x.UserName == username);
@@ -63,44 +49,28 @@ namespace Xilion.Models.User.Core
         {
             return _userRepository.Query().SingleOrDefault(x => x.Id == userId);
         }
-        /// <summary>
-        ///   Gets Role by Id
-        /// </summary>
-        /// <returns> </returns>
-        public override void Delete(Users entity)
+
+        public bool DeleteUser(Users entity)
         {
             if (entity.IsPersistent)
-                throw new CmsException("Cannot delete system classification");
+                return false;
             base.Delete(entity);
+            return true;
         }
 
-        /// <summary>
-        ///   Gets users
-        /// </summary>
-        /// <returns> </returns>
         public IQueryable<Users> GetUsers()
         {
             return _userRepository.GetAll();
         }
 
-        /// <summary>
-        ///   Gets users
-        /// </summary>
-        /// <returns> </returns>
-        public List<Users> GetAll()
+        public override IList<Users> GetAll()
         {
             return _userRepository.GetAll().ToList();
         }
 
-        /// <summary>
-        /// </summary>
-        /// <param name="user"> </param>
-        /// <param name="email"> </param>
-        /// <param name="password"> </param>
-        public void Save(Users user, string email, string password)
+        public override void Save(Users user)
         {
             Save(user);
-            WebSecurity.CreateAccount(user.UserName, password);
         }
     }
 }

@@ -1,25 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Xilion.Models.User.Data;
 
 namespace Xilion.Models.User.Core
 {
-    public interface IUserService 
+    public interface IUserService
     {
         UserSettings Settings { get; }
 
         Users Current();
-
+        bool DeleteUser(Users entity);
+        IList<Users> GetAll();
         Users GetAuth(string username, string password);
-
+        Users GetById(int userId);
         Users GetCurrent(string username);
-
-        Users GetById(int Id);
-
+        IQueryable<Users> GetUsers();
         void Save(Users user);
-
-        List<Users> GetAll();
-
-        void Delete(Users entity);
     }
 }

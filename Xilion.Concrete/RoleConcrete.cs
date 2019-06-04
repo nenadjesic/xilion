@@ -13,7 +13,7 @@ using Xilion.Models.Roles.Core;
 
 namespace Xilion.Concrete
 {
-    public class RoleConcrete : IRoleService
+    public class RoleConcrete
     {
         private readonly IConfiguration _configuration;
         private readonly IRoleService _roleService;
@@ -57,9 +57,9 @@ namespace Xilion.Concrete
             return result;
         }
 
-        public List<Role> GetAllRole()
+        public IList<Role> GetAllRole()
         {
-            var result = _roleService.GetRoles();
+            var result = _roleService.GetAll();
             return result;
         }
 
@@ -74,44 +74,21 @@ namespace Xilion.Concrete
             return true;
         }
 
-        IQueryable<Role> IRoleService.CheckRoleExits(string roleName)
+        public void Delete(Role role)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Role entity)
-        {
-            throw new NotImplementedException();
+            _roleService.DeleteRole(role);
         }
 
         public Role GetById(int roleId)
         {
-            throw new NotImplementedException();
+            return _roleService.GetById(roleId);
         }
 
-        public IQueryable<Role> GetByLabel()
+
+        public IList<Role> GetRoles()
         {
-            throw new NotImplementedException();
+            return _roleService.GetAll();
         }
 
-        public List<Role> GetRoles()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<UsersInRoles> GetUsersInRole()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<UsersInRoles> GetUsersRole()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Save(Role Role)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

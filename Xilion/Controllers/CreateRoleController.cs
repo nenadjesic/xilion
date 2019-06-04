@@ -32,7 +32,7 @@ namespace Xilion.Controllers
         {
             try
             {
-                return _roleServices.GetRoles();
+                return _roleServices.GetAll();
             }
             catch (Exception)
             {

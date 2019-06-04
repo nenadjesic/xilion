@@ -74,10 +74,7 @@ namespace Xilion
             services.AddTransient<ISchemeMaster, SchemeMasterConcrete>();
             services.AddTransient<IPlanMaster, PlanMasterConcrete>();
             services.AddTransient<IPeriodMaster, PeriodMasterConcrete>();
-            services.AddTransient<IRoleService, RoleConcrete>();
             services.AddTransient<IMemberRegistration, MemberRegistrationConcrete>();
-            services.AddTransient<IUsers, UsersConcrete>();
-            services.AddTransient<IUsersInRoles, UsersInRolesConcrete>();
             services.AddTransient<IPaymentDetails, PaymentDetailsConcrete>();
             services.AddTransient<IRenewal, RenewalConcrete>();
             services.AddTransient<IReports, ReportsMaster>();

@@ -6,38 +6,33 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Xilion.Interface;
 using Xilion.Models;
+using Xilion.Models.Roles.Core;
+using Xilion.Models.User.Core;
 using Xilion.ViewModels;
 
 namespace Xilion.Concrete
 {
-    public class UsersInRolesConcrete : IUsersInRoles
+    public class UsersInRolesConcrete 
     {
-        private readonly DatabaseContext _context;
         private readonly IConfiguration _configuration;
-
-        public UsersInRolesConcrete(DatabaseContext context, IConfiguration config)
+        private readonly IRoleService _roleService;
+        private readonly IUserService _userService;
+        public UsersInRolesConcrete(DatabaseContext context, IConfiguration config,IRoleService roleService, IUserService userService)
         {
-            _context = context;
             _configuration = config;
+            _roleService = roleService;
+            _userService = userService;
         }
 
         public bool AssignRole(UsersInRoles usersInRoles)
         {
-            _context.Add(usersInRoles);
-            var result = _context.SaveChanges();
-            if (result > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            _roleService.SaveUserInRole(usersInRoles);
+            return true;
         }
 
         public bool CheckRoleExists(UsersInRoles usersInRoles)
         {
-            var result = (from userrole in _context.UsersInRoles
+            var result = (from userrole in _roleService.GetUserRoles()
                           where userrole.UserId == usersInRoles.UserId && userrole.RoleId == usersInRoles.RoleId
                           select userrole).Count();
 
@@ -46,22 +41,14 @@ namespace Xilion.Concrete
 
         public bool RemoveRole(UsersInRoles usersInRoles)
         {
-            var role = (from userrole in _context.UsersInRoles
+            var role = (from userrole in _roleService.GetUserRoles()
                         where userrole.UserId == usersInRoles.UserId && userrole.RoleId == usersInRoles.RoleId
                         select userrole).FirstOrDefault();
             if (role != null)
             {
-                _context.UsersInRoles.Remove(role);
-                var result = _context.SaveChanges();
-
-                if (result > 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                _roleService.DeleteUsersInRole(role);
+                return true;
+                
             }
             else
             {
@@ -71,9 +58,9 @@ namespace Xilion.Concrete
 
         public List<AssignRolesViewModel> GetAssignRoles()
         {
-            var result = (from usertb in _context.UsersInRoles
-                          join role in _context.Role on usertb.RoleId equals role.Id
-                          join user in _context.Users on usertb.UserId equals user.Id
+            var result = (from usertb in _roleService.GetUserRoles()
+                          join role in _roleService.GetAll() on usertb.RoleId equals role.Id
+                          join user in _userService.GetAll() on usertb.UserId equals user.Id
                           select new AssignRolesViewModel()
                           {
                               RoleName = role.RoleName,

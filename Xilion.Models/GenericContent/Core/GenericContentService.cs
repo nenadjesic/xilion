@@ -14,17 +14,12 @@ namespace Xilion.Models.GenericContent.Core
              _genericContentRepository = genericContentRepository;
         }
 
-
-        
-       
-
         public GenericContent GetByPageID(long pageid)
         {
              return
                 _genericContentRepository.Query().SingleOrDefault(x => x.Page.Id == pageid );
         }
 
-  
-    
+
     }
 }

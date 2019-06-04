@@ -31,44 +31,28 @@ namespace Xilion.Models.Roles.Core
         }
 
 
-        /// <summary>
-        ///   Gets Roles
-        /// </summary>
-        /// <param name="RoleName"> </param>
-        /// <returns> </returns>
-        public List<Role> GetRoles()
+        public override IList<Role> GetAll()
         {
             return _roleRepository.GetAll().ToList();
         }
 
-        /// <summary>
-        ///   Gets Role by Id
-        /// </summary>
-        /// <returns> </returns>
+
         public Role GetById(int roleId)
         {
             return _roleRepository.GetById(roleId);
         }
 
-        /// <summary>
-        ///   Gets Role by Id
-        /// </summary>
-        /// <returns> </returns>
+
         public bool DeleteRole(Role entity)
         {
             if (entity.IsPersistent)
-            {
                 return false;
-            }
-            else
-            {
-                base.Delete(entity);
-                return true;
-            }
+            _roleRepository.Delete(entity);
+            return true;
         }
 
 
-        public void Save(Role Role, string email, string password)
+        public override void Save(Role Role)
         {
             Save(Role);
         }
@@ -85,22 +69,21 @@ namespace Xilion.Models.Roles.Core
         }
 
 
-        /// <summary>
-        ///   Gets usersRole
-        /// </summary>
-        /// <returns> </returns>
-        public IQueryable<UsersInRoles> GetUsersRole()
-        {
-            return _uirRepository.GetAll();
-        }
-
-        /// <summary>
-        ///   Gets usersRole
-        /// </summary>
-        /// <returns> </returns>
-        public List<UsersInRoles> GetUsersInRole()
+        public IList<UsersInRoles> GetUserRoles()
         {
             return _uirRepository.GetAll().ToList();
         }
+
+        public void DeleteUsersInRole(UsersInRoles userInRole)
+        {
+
+            _uirRepository.Delete(userInRole);
+        }
+
+        public void SaveUserInRole(UsersInRoles userInRole)
+        {
+            _uirRepository.Save(userInRole);
+        }
+
     }
 }

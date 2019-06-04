@@ -13,7 +13,7 @@ using Xilion.Models.Roles.Core;
 
 namespace Xilion.Concrete
 {
-    public class UsersConcrete : IUsers
+    public class UsersConcrete 
     {
 
         private readonly IUserService _userService;
@@ -43,7 +43,7 @@ namespace Xilion.Concrete
             try
             {
                 var result = (from user in _userService.GetAll()
-                              join userinrole in _roleService.GetUsersInRole() on user.Id equals userinrole.UserId
+                              join userinrole in _roleService.GetUserRoles() on user.Id equals userinrole.UserId
                               where user.UserName == username && user.Password == password
 
                               select new LoginResponse
@@ -64,40 +64,35 @@ namespace Xilion.Concrete
         }
 
 
-        public bool DeleteUsers(Users user)
+        public bool DeleteUser(Users user)
         {
-            _userService.Delete(user);
+            _userService.DeleteUser(user);
             return true;            
         }
 
-        public List<Users> GetAllUsers()
+        public IList<Users> GetAllUsers()
         {
-            var result = _userService.GetAll(); ;
+            var result = _userService.GetAll();
 
             return result;
         }
 
-        public Users GetUsersbyId(int userId)
+        public Users GetUserbyId(int userId)
         {
             var result = _userService.GetById(userId);
             return result;
         }
 
-        public bool InsertUsers(Users user)
+        public bool InsertUser(Users user)
         {
             _userService.Save(user);
             return true;
         }
 
-        public bool UpdateUsers(Users user)
+        public bool UpdateUser(Users user)
         {
             _userService.Save(user);
             return true;
-        }
-
-        public bool DeleteUsers(int Usersid)
-        {
-            throw new NotImplementedException();
         }
     }
 }
