@@ -12,7 +12,7 @@ namespace Xilion.Models
     [Table("UsersInRoles")]
     public class UsersInRoles : TrackableEntity
     {
-        public virtual int RoleId { get; set; }
-        public virtual int UserId { get; set; }
+        public virtual long RoleId { get; set; }
+        public virtual long UserId { get; set; }
     }
 }

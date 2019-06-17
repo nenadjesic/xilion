@@ -15,6 +15,7 @@ using Xilion.Models;
 using Xilion.ViewModels;
 using Xilion.Framework;
 using Xilion.Models.User.Core;
+using Xilion.Models.Roles.Core;
 
 namespace Xilion.Controllers
 {
@@ -23,12 +24,13 @@ namespace Xilion.Controllers
     public class AuthenticateController : ControllerBase
     {
         private readonly AppSettings _appSettings;
-        private readonly IUsers _users;
-
-        public AuthenticateController(IOptions<AppSettings> appSettings, IUsers users)
+        private readonly IUserService _users;
+        private readonly IRoleService _role;
+        public AuthenticateController(IOptions<AppSettings> appSettings, IUserService users, IRoleService role)
         {
             _users = users;
             _appSettings = appSettings.Value;
+            _role = role;
         }
     
         // POST: api/Authenticate
@@ -39,12 +41,12 @@ namespace Xilion.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var loginstatus = _users.AuthenticateUsers(value.UserName, EncryptionLibrary.EncryptText(value.Password));
+                    var loginstatus = _users.GetAuth(value.UserName, EncryptionLibrary.EncryptText(value.Password));
 
-                    if (loginstatus)
+                    if (loginstatus !=null)
                     {
-                        var userdetails = _users.GetUserDetailsbyCredentials(value.UserName, EncryptionLibrary.EncryptText(value.Password));
-
+                        var userdetails = _users.GetCurrent(value.UserName);
+                        //var roledetaočs = _r
                         if (userdetails != null)
                         {
                             var tokenHandler = new JwtSecurityTokenHandler();
@@ -53,7 +55,7 @@ namespace Xilion.Controllers
                             {
                                 Subject = new ClaimsIdentity(new Claim[]
                                 {
-                                new Claim(ClaimTypes.Name, userdetails.UserId.ToString())
+                                new Claim(ClaimTypes.Name, userdetails.Id.ToString())
                                 }),
                                 Expires = DateTime.UtcNow.AddDays(1),
                                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -63,7 +65,7 @@ namespace Xilion.Controllers
 
                             // remove password before returning
                             value.Password = null;
-                            value.Usertype = userdetails.RoleId;
+                            value.Usertype = 1;
 
                             return Ok(value);
                         }
