@@ -11,11 +11,10 @@ namespace Xilion.Models.Roles.Data.Mapping
         {
             Map(x => x.RoleName);
             Map(x => x.Status);
-            References(x => x.Id)
-                .ForeignKey("FK_Role_UserInRole")
-                .Nullable()
-                .Cascade.SaveUpdate()
-                .Column("RoleId");
+            HasMany(x => x.RoleOfUsers)
+            .Inverse()
+            .Cascade.All()
+            .KeyColumn("RoleId");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Envers.Configuration.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,9 +11,10 @@ using Xilion.Framework.Domain;
 namespace Xilion.Models
 {
     [Table("UsersInRoles")]
-    public class UsersInRoles : TrackableEntity
+
+    public class UsersInRoles: TrackableEntity
     {
-        public virtual long RoleId { get; set; }
         public virtual long UserId { get; set; }
+        public virtual long RoleId { get; set; }
     }
 }

@@ -22,11 +22,10 @@ namespace Xilion.Models.User.Data.Mapping
                .Nullable()
                .Cascade.SaveUpdate()
                .Column("ImageItemID").Nullable();
-            References(x => x.Id)
-                .ForeignKey("FK_User_UserInRole")
-                .Nullable()
-                .Cascade.SaveUpdate()
-                .Column("UserId");
-        }
+            HasMany(x => x.UsersInRoles) 
+            .Inverse()
+            .Cascade.All()
+            .KeyColumn("UserId");
+         }
     }
 }

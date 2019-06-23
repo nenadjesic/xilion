@@ -15,7 +15,6 @@ using NHibernate.Envers.Configuration.Attributes;
 namespace Xilion.Models
 {
     [Table("Users")]
-    [Audited]
     public class Users : TrackableEntity
     {
         public virtual  string UserName { get; set; }
@@ -36,5 +35,6 @@ namespace Xilion.Models
 
         [Audited(TargetAuditMode = RelationTargetAuditMode.NotAudited)]
         public virtual ImageItem Avatar { get; set; }
+        public virtual ICollection<UsersInRoles> UsersInRoles { get; set; }
     }
 }

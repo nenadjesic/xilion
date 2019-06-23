@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Envers.Configuration.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,5 +18,6 @@ namespace Xilion.Models
         public virtual string RoleName { get; set; }
 
         public virtual bool Status { get; set; }
+        public virtual IList<UsersInRoles> RoleOfUsers { get; set; }
     }
 }
