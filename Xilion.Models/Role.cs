@@ -18,6 +18,11 @@ namespace Xilion.Models
         public virtual string RoleName { get; set; }
 
         public virtual bool Status { get; set; }
-        public virtual IList<UsersInRoles> RoleOfUsers { get; set; }
+        public virtual IList<UsersInRoles> UsersInRole { get; set; }
+
+        public Role()
+        {
+            UsersInRole = new List<UsersInRoles>();
+        }
     }
 }

@@ -33,8 +33,18 @@ namespace Xilion.Models
 
         public virtual bool Deactived { get; set; }
 
-        [Audited(TargetAuditMode = RelationTargetAuditMode.NotAudited)]
         public virtual ImageItem Avatar { get; set; }
-        public virtual ICollection<UsersInRoles> UsersInRoles { get; set; }
+
+        public virtual IList<UsersInRoles> Roles  { get; set; }
+
+        public virtual void AddRole(UsersInRoles role)
+        {
+            Roles.Add(role);
+        }
+
+        public virtual void RemoveRole(UsersInRoles role)
+        {
+            Roles.Remove(role);
+        }
     }
 }

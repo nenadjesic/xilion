@@ -22,10 +22,9 @@ namespace Xilion.Models.User.Data.Mapping
                .Nullable()
                .Cascade.SaveUpdate()
                .Column("ImageItemID").Nullable();
-            HasMany(x => x.UsersInRoles) 
-            .Inverse()
-            .Cascade.All()
-            .KeyColumn("UserId");
-         }
+               HasManyToMany(x => x.Roles)
+                    .Cascade.All()
+                    .Table(TableNameConvention.Prefix + "UsersInRoles");
+        }
     }
 }

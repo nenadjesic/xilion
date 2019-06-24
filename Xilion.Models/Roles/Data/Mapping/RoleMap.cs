@@ -11,10 +11,9 @@ namespace Xilion.Models.Roles.Data.Mapping
         {
             Map(x => x.RoleName);
             Map(x => x.Status);
-            HasMany(x => x.RoleOfUsers)
-            .Inverse()
-            .Cascade.All()
-            .KeyColumn("RoleId");
+            HasManyToMany(x => x.UsersInRole)
+                    .Cascade.All()
+                    .Table(TableNameConvention.Prefix + "UsersInRoles");
         }
     }
 }
