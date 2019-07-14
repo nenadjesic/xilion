@@ -15,6 +15,10 @@
     <Compile Remove="Core\Data\EntityAliasListFieldBridge.cs" />
     <Compile Remove="Core\Data\GuidFieldBridge.cs" />
     <Compile Remove="Core\Data\MetaDataFieldBridge.cs" />
+    <Compile Remove="Roles\Data\Default\UsersInRolesRepository.cs" />
+    <Compile Remove="Roles\Data\IUsersInRoles.cs" />
+    <Compile Remove="Roles\Data\Mapping\UsersInRolesMap.cs" />
+    <Compile Remove="UsersInRoles.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -14,7 +14,6 @@ namespace Xilion.Models
 
     public class UsersInRoles: TrackableEntity
     {
-        public virtual Users User { get; set; }
-        public virtual Role Role { get; set; }
+
     }
 }

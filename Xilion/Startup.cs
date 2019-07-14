@@ -108,7 +108,7 @@ namespace Xilion
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<RoleRepository, RoleRepository>();
             services.AddScoped<RoleService, RoleService>();
-            services.AddScoped<IUsersInRolesRepository, UsersInRolesRepository>();
+
 
             services.AddCors(options =>
             {
@@ -166,7 +166,7 @@ namespace Xilion
                 }
             });
             //HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
-            CreateDatabase();
+            //CreateDatabase();
         }
 
         public void CreateDatabase()

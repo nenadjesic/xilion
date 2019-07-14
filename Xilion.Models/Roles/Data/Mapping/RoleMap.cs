@@ -11,7 +11,7 @@ namespace Xilion.Models.Roles.Data.Mapping
         {
             Map(x => x.RoleName);
             Map(x => x.Status);
-            HasManyToMany(x => x.UsersInRole)
+            HasManyToMany(x => x.Users)
                     .Cascade.All()
                     .Table(TableNameConvention.Prefix + "UsersInRoles");
         }

@@ -9,8 +9,7 @@ namespace Xilion.Models.Roles.Data.Mapping
     {
         public UsersInRolesMap()
         {
-            Map(x => x.UserId);
-            Map(x => x.RoleId);
+           
         }
     }
 }

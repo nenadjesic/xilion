@@ -24,47 +24,5 @@ namespace Xilion.Controllers
             _usersInRoles = usersInRoles;
         }
 
-        // POST: api/RemoveRole
-        [HttpPost]
-        public HttpResponseMessage Post([FromBody] UsersInRoles usersInRoles)
-        {
-            if (ModelState.IsValid)
-            {
-                if (_usersInRoles.CheckRoleExists(usersInRoles))
-                {
-                  
-                    //usersInRoles.Id = 0;
-                    _usersInRoles.RemoveRole(usersInRoles);
-
-                    var response = new HttpResponseMessage()
-                    {
-                        StatusCode = HttpStatusCode.OK
-                    };
-
-                    return response;
-                }
-                else
-                {
-                    var response = new HttpResponseMessage()
-                    {
-                        StatusCode = HttpStatusCode.Conflict
-                    };
-
-                    return response;
-                }
-            }
-            else
-            {
-                var response = new HttpResponseMessage()
-                {
-
-                    StatusCode = HttpStatusCode.BadRequest
-                };
-
-                return response;
-            }
-        }
-
-
     }
 }

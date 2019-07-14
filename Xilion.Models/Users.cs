@@ -35,14 +35,14 @@ namespace Xilion.Models
 
         public virtual ImageItem Avatar { get; set; }
 
-        public virtual IList<UsersInRoles> Roles  { get; set; }
+        public virtual IList<Role> Roles  { get; set; }
 
-        public virtual void AddRole(UsersInRoles role)
+        public virtual void AddRole(Role role)
         {
             Roles.Add(role);
         }
 
-        public virtual void RemoveRole(UsersInRoles role)
+        public virtual void RemoveRole(Role role)
         {
             Roles.Remove(role);
         }

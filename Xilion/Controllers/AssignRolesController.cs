@@ -40,57 +40,5 @@ namespace Xilion.Controllers
             }
         }
 
-       
-        // POST: api/UsersInRoles
-        [HttpPost]
-        public HttpResponseMessage Post([FromBody] UsersInRoles usersInRoles)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    if (_usersInRoles.CheckRoleExists(usersInRoles))
-                    {
-                        var response = new HttpResponseMessage()
-                        {
-                            StatusCode = HttpStatusCode.Conflict
-                        };
-
-                        return response;
-                    }
-                    else
-                    {
-
-                        //usersInRoles.Id = 0;
-                        _usersInRoles.AssignRole(usersInRoles);
-
-                        var response = new HttpResponseMessage()
-                        {
-                            StatusCode = HttpStatusCode.OK
-                        };
-
-                        return response;
-                    }
-                }
-                else
-                {
-                    var response = new HttpResponseMessage()
-                    {
-
-                        StatusCode = HttpStatusCode.BadRequest
-                    };
-
-                    return response;
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-
-
     }
 }

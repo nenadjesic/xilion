@@ -9,12 +9,12 @@ namespace Xilion.Models.Roles.Core
 
         IQueryable<Role> CheckRoleExits(string roleName);
         bool DeleteRole(Role entity);
-        void DeleteUsersInRole(UsersInRoles userInRole);
+        //void DeleteUsersInRole(UsersInRoles userInRole);
         IList<Role> GetAll();
         Role GetById(int roleId);
         IQueryable<Role> GetByLabel();
-        IList<UsersInRoles> GetUserRoles();
+        //IList<UsersInRoles> GetUserRoles();
         void Save(Role Role);
-        void SaveUserInRole(UsersInRoles userInRole);
+        //void SaveUserInRole(UsersInRoles userInRole);
     }
 }

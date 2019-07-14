@@ -17,11 +17,10 @@ namespace Xilion.Models.Roles.Core
     {
         private static bool _initialized;
         private readonly IRoleRepository _roleRepository;
-        private readonly IUsersInRolesRepository _uirRepository;
-        public RoleService(IRoleRepository roleRepository, IUsersInRolesRepository uirRepository) : base(roleRepository)
+        //private readonly IUsersInRolesRepository _uirRepository;
+        public RoleService(IRoleRepository roleRepository) : base(roleRepository)
         {
             _roleRepository = roleRepository;
-            _uirRepository = uirRepository;
         }
 
 
@@ -67,23 +66,5 @@ namespace Xilion.Models.Roles.Core
         {
             return _roleRepository.Query().Where(x => x.RoleName.Contains(roleName));
         }
-
-
-        public IList<UsersInRoles> GetUserRoles()
-        {
-            return _uirRepository.GetAll().ToList();
-        }
-
-        public void DeleteUsersInRole(UsersInRoles userInRole)
-        {
-
-            _uirRepository.Delete(userInRole);
-        }
-
-        public void SaveUserInRole(UsersInRoles userInRole)
-        {
-            _uirRepository.Save(userInRole);
-        }
-
     }
 }
