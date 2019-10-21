@@ -17,6 +17,9 @@ using Xilion.Framework.Web;
 using ISession = NHibernate.ISession;
 using HttpContext = Xilion.Framework.Web.HttpContext;
 using Xilon.Framework.Data.Search;
+using System.Xml.Schema;
+using System.Xml;
+using NHibernate.Dialect;
 
 namespace Xilion.Framework.Data
 {
@@ -129,8 +132,10 @@ namespace Xilion.Framework.Data
                 lock (this)
                 {
                     _configuration = Fluently.Configure()
-                         .Database(MsSqlConfiguration.MsSql2008
+                         .Database(MsSqlConfiguration.MsSql2012
                                        .ConnectionString(ConnectionStringProvider.GetConnectionString())
+                                       .Dialect<MsSql2012Dialect>()
+                                       .FormatSql().ShowSql()
                                        .AdoNetBatchSize(100))
                         .Cache(c => c.UseQueryCache().ProviderClass(typeof(NHibernate.Caches.RtMemoryCache.RtMemoryCacheProvider).AssemblyQualifiedName))
                          .Mappings(m => AddAssemblies(m.FluentMappings))
@@ -202,7 +207,7 @@ namespace Xilion.Framework.Data
         public void CreateDatabase()
         {
             var cfg = GetConfiguration();
-            cfg.Configure();
+            
             foreach (Assembly assembly in AssemblyScanner.GetAllReferencingFrameCore())
             {
                 _logger.DebugFormat(

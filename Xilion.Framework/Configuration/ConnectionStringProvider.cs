@@ -11,7 +11,7 @@ namespace Xilion.Framework.Configuration
         public static string GetConnectionString()
         {
             string machineName = Environment.MachineName;
-            var connection = "Data Source=DESKTOP-SIPUBFN\\SQLEXPRESS; UID=sa; Password=sa;Database=Xilion";
+            var connection = "Server=ACTKPTP210; User Id=sa; Password=sa;Initial Catalog=Xilion";
             return connection;
         }
     }

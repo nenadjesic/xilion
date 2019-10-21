@@ -167,6 +167,7 @@ namespace Xilion
             });
             //HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
             //CreateDatabase();
+
         }
 
         public void CreateDatabase()
